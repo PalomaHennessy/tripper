@@ -32,6 +32,7 @@ gem 'valid_url'
 # for email validation
 gem 'email_validator'
 
+gem 'materialize-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
