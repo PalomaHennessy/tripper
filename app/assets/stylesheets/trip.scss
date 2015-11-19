@@ -12,14 +12,6 @@
   background-size: cover;  
 }
 
-.col {
-	height:100vh;
-	margin: 0 auto;
-}
-.s5 {
-	background-color: #e0ffff;
-}
-
 html { 
 	@include cover-background('http://www.incite-pictures.com/wp-content/uploads/2015/06/bg_road2.jpg');
 }
