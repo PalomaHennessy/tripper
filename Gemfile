@@ -26,6 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# for easier url validation
+gem 'valid_url'
+
+# for email validation
+gem 'email_validator'
+
+gem 'materialize-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
