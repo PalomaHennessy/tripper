@@ -1,11 +1,15 @@
 class UserController < ApplicationController
+
   def index
   end
 
   def create
+    User.create user_params
+    redirect_to root_path
   end
 
   def new
+    @user = User.new
   end
 
   def edit
@@ -19,4 +23,11 @@ class UserController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :name)
+  end
+
 end

@@ -1,7 +1,6 @@
-/*// Place all the styles related to the trip controller here.
-// They will automatically be included in application.css.
-<<<<<<< HEAD
-// You can use Sass (SCSS) here: http://sass-lang.com/*/
+//styles for ALL layout
+
+
 #trip-form {
 	text-align: center;
 }
@@ -15,11 +14,6 @@
   background-size: cover;  
 }
 
-.col {
-	height:100vh;
-	margin: 0 auto;
-}
-
 html { 
 	@include cover-background('http://www.incite-pictures.com/wp-content/uploads/2015/06/bg_road2.jpg');
 }
@@ -28,6 +22,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: 'Sanchez', serif;
 }
 
 main {
@@ -36,6 +31,31 @@ main {
 
 nav ul a {
 	color: black;
+  font-family: 'Sanchez', serif;
 }
 
->>>>>>> 11eb9e7c056fc95a661e94d85dc2c7c75ed50b06
+#loginheader {
+  color: black;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  color: black;
+  font-family: 'Sanchez', serif;
+}
+
+nav .input-field input{
+      margin-left: 30px;
+    }
+
+
+

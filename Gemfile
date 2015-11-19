@@ -33,6 +33,11 @@ gem 'valid_url'
 gem 'email_validator'
 
 gem 'materialize-sass'
+
+# OAUTH Gem
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
