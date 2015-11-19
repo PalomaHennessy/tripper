@@ -6,6 +6,7 @@ class TripController < ApplicationController
   end
 
   def new
+    @gmap = ENV['GOOGLE_DIR']
   end
 
   def edit
