@@ -30,6 +30,10 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
+  get 'auth/logout' => 'auth#logout'
+  get 'auth/failure' => 'auth#failure'
+  get 'auth/:provider/callback' => 'auth#callback'
+
   resources :user
   resources :trip
   # The priority is based upon order of creation: first created -> highest priority.
