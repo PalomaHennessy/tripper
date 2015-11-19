@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'trip#index'
+
   get 'trip/index'
 
   get 'trip/create'
