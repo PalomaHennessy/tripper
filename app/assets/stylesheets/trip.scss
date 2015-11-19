@@ -9,10 +9,10 @@
   background-size: cover;  
 }
 
-.col {
-	height:100vh;
-	margin: 0 auto;
-}
+// .col {
+// 	height:100vh;
+// 	margin: 0 auto;
+// }
 
 html { 
 	@include cover-background('http://www.incite-pictures.com/wp-content/uploads/2015/06/bg_road2.jpg');
@@ -24,11 +24,11 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1 0 auto;
-}
+// main {
+//     flex: 1 0 auto;
+// }
 
-nav ul a {
-	color: black;
-}
+// nav ul a {
+// 	color: black;
+// }
 
