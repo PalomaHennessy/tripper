@@ -7,6 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 
@@ -14,10 +15,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <link rel="styesheet" href="assets/stylesheets/styles">
-          
 
 </head>
 <body>
@@ -26,22 +27,25 @@
       <a href="#" class="brand-logo center">Trippin'</a>
       <ul id="nav-mobile black-text" class="left hide-on-med-and-down"> 
         
-        <li><a href="#openModal">Login</a></li>
-           <div id= "openModal" class="modalDialog">
-            <div class="row">
-             <form class="col s12">
-              <div class="row"
-               <div class="input-field col s12">
-               <input id="password" type="password" class="validate">
-               <label for="password">Password</label>
-             </div>
+         <li><a href="#openModal">Login</a></li>
+            <div id= "openModal" class="modalDialog">
+               <div>
+                  <a href="#close" title="close" class="close">X</a>
+                  <h2>Login</h2>
+                     <div class="row">
+                        <form class="col s12">
+                          <div class="row"
+                           <div class="input-field col s12">
+                           <input id="password" type="password" class="validate">
+                           <label for="password">Password</label>
+                         </div>
+                        </div>
+                       <div class="row">
+                        <div class="input-field col s12">
+                         <input id="email" type="email" class="validate">
+                         <label for="email">Email</label>
+               </div>
             </div>
-           <div class="row">
-            <div class="input-field col s12">
-             <input id="email" type="email" class="validate">
-             <label for="email">Email</label>
-            </div>
-           <div>
 
 
 
