@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+  post '/' => 'user#create', as: 'user_create1'
+
   resources :user
   resources :trip
   # The priority is based upon order of creation: first created -> highest priority.
