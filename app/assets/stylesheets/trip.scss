@@ -1,5 +1,11 @@
-// Place all the styles related to the trip controller here.
+/*// Place all the styles related to the trip controller here.
 // They will automatically be included in application.css.
+<<<<<<< HEAD
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+#trip-form {
+	text-align: center;
+}
+
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @mixin cover-background($img-uri, $background-top:"center", $background-left:"center", $background-attachment:"fixed") {
   background: url($img-uri) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
@@ -32,3 +38,4 @@ nav ul a {
 	color: black;
 }
 
+>>>>>>> 11eb9e7c056fc95a661e94d85dc2c7c75ed50b06
