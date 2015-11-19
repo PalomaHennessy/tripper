@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+  post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'
 
   resources :user
