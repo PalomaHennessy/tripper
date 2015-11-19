@@ -1,0 +1,99 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'materalize-css' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.1
+4 verbose config Skipping project config: /Users/palomahennessy/.npmrc. (matches userconfig)
+5 verbose install initial load of /Users/palomahennessy/package.json
+6 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/body-parser/package.json
+7 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/ejs/package.json
+8 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/express/package.json
+9 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/express-ejs-layouts/package.json
+10 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/pg/package.json
+11 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/pg-hstore/package.json
+12 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/sequelize/package.json
+13 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/socket.io/package.json
+14 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/sweetalert/package.json
+15 verbose installManyTop reading scoped package data from /Users/palomahennessy/node_modules/twit/package.json
+16 info package.json express-ejs-layouts@2.0.0 No license field.
+17 info package.json socket.io@1.3.7 No license field.
+18 info package.json pg-hstore@2.3.2 No license field.
+19 info package.json twit@2.1.1 No license field.
+20 verbose readDependencies loading dependencies from /Users/palomahennessy/package.json
+21 silly cache add args [ 'materalize-css', null ]
+22 verbose cache add spec materalize-css
+23 silly cache add parsed spec Result {
+23 silly cache add   raw: 'materalize-css',
+23 silly cache add   scope: null,
+23 silly cache add   name: 'materalize-css',
+23 silly cache add   rawSpec: '',
+23 silly cache add   spec: '*',
+23 silly cache add   type: 'range' }
+24 silly addNamed materalize-css@*
+25 verbose addNamed "*" is a valid semver range for materalize-css
+26 silly addNameRange { name: 'materalize-css', range: '*', hasData: false }
+27 silly mapToRegistry name materalize-css
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry uri https://registry.npmjs.org/materalize-css
+31 verbose addNameRange registry:https://registry.npmjs.org/materalize-css not in flight; fetching
+32 verbose request uri https://registry.npmjs.org/materalize-css
+33 verbose request no auth needed
+34 info attempt registry request try #1 at 4:30:16 PM
+35 verbose request id 65709e2cb6b0e5b6
+36 http request GET https://registry.npmjs.org/materalize-css
+37 http 404 https://registry.npmjs.org/materalize-css
+38 verbose headers { 'content-type': 'application/json',
+38 verbose headers   'cache-control': 'max-age=0',
+38 verbose headers   'content-length': '2',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   date: 'Thu, 19 Nov 2015 00:30:17 GMT',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   age: '0',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-served-by': 'cache-atl6232-ATL',
+38 verbose headers   'x-cache': 'MISS',
+38 verbose headers   'x-cache-hits': '0',
+38 verbose headers   'x-timer': 'S1447893017.284986,VS0,VE103' }
+39 silly get cb [ 404,
+39 silly get   { 'content-type': 'application/json',
+39 silly get     'cache-control': 'max-age=0',
+39 silly get     'content-length': '2',
+39 silly get     'accept-ranges': 'bytes',
+39 silly get     date: 'Thu, 19 Nov 2015 00:30:17 GMT',
+39 silly get     via: '1.1 varnish',
+39 silly get     age: '0',
+39 silly get     connection: 'keep-alive',
+39 silly get     'x-served-by': 'cache-atl6232-ATL',
+39 silly get     'x-cache': 'MISS',
+39 silly get     'x-cache-hits': '0',
+39 silly get     'x-timer': 'S1447893017.284986,VS0,VE103' } ]
+40 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/materalize-css
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:263:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:241:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:171:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+40 verbose stack     at emitTwo (events.js:87:13)
+40 verbose stack     at Request.emit (events.js:172:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1073:14)
+40 verbose stack     at emitOne (events.js:82:20)
+40 verbose stack     at Request.emit (events.js:169:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1019:12)
+41 verbose statusCode 404
+42 verbose pkgid materalize-css
+43 verbose cwd /Users/palomahennessy/tripper
+44 error Darwin 14.5.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "materalize-css"
+46 error node v4.1.1
+47 error npm  v2.14.4
+48 error code E404
+49 error 404 Registry returned 404 for GET on https://registry.npmjs.org/materalize-css
+49 error 404
+49 error 404 'materalize-css' is not in the npm registry.
+49 error 404 You should bug the author to publish it (or use the name yourself!)
+49 error 404
+49 error 404 Note that you can also install from a
+49 error 404 tarball, folder, http url, or git url.
+50 verbose exit [ 1, true ]
