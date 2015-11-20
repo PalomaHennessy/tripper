@@ -6,9 +6,9 @@ class TripController < ApplicationController
   end
 
   def create
-    @trip = trip
-    trip= Trip.create trip_params
-    redirect_to trip_new_path(trip.id)
+    # @trip = trip
+    # trip= Trip.create trip_params
+    # redirect_to trip_new_path(trip.id)
 
   end
 
@@ -17,10 +17,10 @@ class TripController < ApplicationController
     long = -122.3301120
 
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'])
 
     @gmap = ENV['GOOGLE_DIR']
-    @trip = Trip.find params[:id]   
+    # @trip = Trip.find params[:id]   
   end
 
   def edit
