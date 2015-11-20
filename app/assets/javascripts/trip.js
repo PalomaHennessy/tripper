@@ -41,7 +41,6 @@ function initMap() {
 
 		google.maps.event.addListener(map, 'click', function(event) {
 		  placeMarker(event.latLng);
-		  // var latLong = [marker.getPosition().lat(), marker.getPosition().lng()];
 		  var lat = marker.getPosition().lat();
 		  var lng = marker.getPosition().lng();
 		  $.ajax({
