@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get 'trip/index'
 
-  get 'trip/create'
+  post 'trip/create' => 'trip#create'
 
-  get 'trip/new'
+  get 'trip/:id/new' => 'trip#new', as: 'trip_new'
 
   get 'trip/edit'
 
