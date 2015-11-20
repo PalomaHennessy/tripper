@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static/new'
+
   root 'trip#index'
 
   get 'trip/index'
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
   get 'user/update'
 
   get 'user/destroy'
+
+  get 'static/about'
 
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
