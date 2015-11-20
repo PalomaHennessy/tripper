@@ -30,11 +30,14 @@ class TripController < ApplicationController
   end
 
   def update
-    # this is where the ajax call is routed to
-    # we will eventually generate choices with this data (yelp or places)
-    puts params["lng"]
-    puts params["lat"]
-    redirect_to trip_new_path
+    lat = params['lat']
+    long = params['lng']
+
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
+    
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
   end
 
   def destroy

@@ -56,9 +56,12 @@ function initMap() {
 		  var lng = marker.getPosition().lng();
 		  //ajax request that passes the lat long back to the server
 		  $.ajax({
-		  	url: "/trip/update",
+		  	url: "/trip/4/update",
 		  	type: "GET",
-		  	data: {lat, lng}
+		  	data: {lat, lng},
+		  	success: function(data) {
+		  		console.log(data);
+		  	}
 		  }).done(function(){
 		  	console.log("success");
 		  })
