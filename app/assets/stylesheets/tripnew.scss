@@ -12,11 +12,15 @@
 	height: 100vh;
 	width: 100vw;
 	margin: 0 auto;
+	// background-color: rgba(255, 255, 255, 0.5);
 }
 
 // map div needs to be set in order for map to display
 // the size can be changed
 #map {
 	height: 500px;
+	margin-top: 30px;
+	margin-left: 30px;
 }
+
 
