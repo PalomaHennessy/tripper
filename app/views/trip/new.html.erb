@@ -21,7 +21,7 @@
     		</form>
   	</div>
       <form action="#">
-      <% @spotList.each do |item| %>
+      <% @spotList.take(3).each do |item| %>
       <div class="well">
         <input type="checkbox" id="<%=item["name"]%>" />
         <label for="<%=item["name"]%>">
