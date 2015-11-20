@@ -1,3 +1,5 @@
+// console.log(<%= start %>);
+
 //this is the callback for the async js in the trip new page
 function initMap() {
 	//creating directionsService and directionsDisplay objects to be used
