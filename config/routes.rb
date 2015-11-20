@@ -32,8 +32,6 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
-  get 'static/about'
-
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
