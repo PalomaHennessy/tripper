@@ -7,7 +7,7 @@
     </span>
   </div>
 	<div class="col-trip-edit col s6">
-		<h5>Trip Edit Page</h5>
+		<h5>Trip New Page</h5>
 		<div class="row">
     		<form class="col s12">
      			<div class="row">
@@ -18,7 +18,7 @@
       		</div>
     		</form>
   	</div>
-  		 <form action="#">
+  		 <!-- <form action="#">
         <p>
           <input type="checkbox" id="test1" />
           <label for="test1">Option One</label>
@@ -45,6 +45,14 @@
         </p>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         </button>
-      </form>
+      </form> -->
+      <% @results.each do |item| %>
+      <div class="well">
+        <h1><%= item["name"] %></h1>
+        <p>Rating: <%= item["rating"] %></p>
+        <p>Address: <%= item["vicinity"] %></p>
+
+      </div>
+      <% end %>
   </div>
 </div>
