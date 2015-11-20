@@ -11,14 +11,11 @@
 	<div class="col-trip-edit col s6">
 		<h5>Trip Edit Page</h5>
 		<div class="row">
-    		<form class="col s12">
+    		
      			<div class="row">
-       				<div class="input-field col s12">
-        				<input id="trip_name" type="text" class="validate">
-          			<label for="trip_name">Trip Name</label>
-        			</div>
+              <h1><%= @trip.trip_name %></h1>
       		</div>
-    		</form>
+    
   	</div>
   		 <form action="#">
         <p>
@@ -51,6 +48,10 @@
   </div>
 </div>
 
+<script>
+  var start = "<%= @trip.start_point %>";
+  var end = "<%= @trip.end_point %>";
+</script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
 </script>

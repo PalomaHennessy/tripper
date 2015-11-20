@@ -4,10 +4,15 @@ class TripController < ApplicationController
   end
 
   def create
+    @trip = trip
+    trip= Trip.create trip_params
+    redirect_to trip_new_path(trip.id)
+
   end
 
   def new
     @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]   
   end
 
   def edit
@@ -26,4 +31,10 @@ class TripController < ApplicationController
 
   def destroy
   end
+
+  private 
+
+  def trip_params
+    params.require(:trip).permit(:start_point, :end_point, :trip_name)
+  end  
 end
