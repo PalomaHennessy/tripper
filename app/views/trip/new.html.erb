@@ -48,10 +48,10 @@
   </div>
 </div>
 
-<script>
-  var start = "<%= @trip.start_point %>";
-  var end = "<%= @trip.end_point %>";
-</script>
+<div class="hide">
+  <div id="start"><%= @trip.start_point %></div>
+  <div id="end"><%= @trip.end_point %></div>
+</div>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
 </script>

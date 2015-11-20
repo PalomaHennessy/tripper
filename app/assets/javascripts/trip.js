@@ -1,4 +1,3 @@
-// console.log(<%= start %>);
 
 //this is the callback for the async js in the trip new page
 function initMap() {
@@ -23,8 +22,8 @@ function initMap() {
 		//(this would set a turn by turn dispaly) 
 		var request = { //object to be passed into directionsService (object) .route() (function)
 			//this is where we will place our start and end points
-		  origin: "Seattle, Washington",
-		  destination: "San Francisco, CA",
+		  origin: $("#start").html(),
+		  destination: $("#end").html(),
 		  travelMode: google.maps.DirectionsTravelMode.DRIVING
 		};
 
