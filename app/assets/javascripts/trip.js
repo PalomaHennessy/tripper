@@ -44,7 +44,8 @@ function initMap() {
 		  } else {
 		    marker = new google.maps.Marker({
 		      position: location,
-		      map: map
+		      map: map,
+		      animation: google.maps.Animation.DROP
 		    });
 		  }
 		}

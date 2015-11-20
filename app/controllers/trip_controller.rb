@@ -4,8 +4,8 @@ class TripController < ApplicationController
   end
 
   def create
-    @trip = trip
     trip= Trip.create trip_params
+    @trip = trip
     redirect_to trip_new_path(trip.id)
 
   end
