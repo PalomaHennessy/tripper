@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get 'trip/index'
 
-  get 'trip/create'
+  post 'trip/create' => 'trip#create'
 
-  get 'trip/new'
+  get 'trip/:id/new' => 'trip#new', as: 'trip_new'
 
   get 'trip/edit'
 
@@ -31,8 +31,6 @@ Rails.application.routes.draw do
   get 'user/update'
 
   get 'user/destroy'
-
-  get 'static/about'
 
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
