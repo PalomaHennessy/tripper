@@ -17,6 +17,8 @@ class TripController < ApplicationController
   end
 
   def update
+    # this is where the ajax call is routed to
+    # we will eventually generate choices with this data (yelp or places)
     puts params["lng"]
     puts params["lat"]
     redirect_to trip_new_path
