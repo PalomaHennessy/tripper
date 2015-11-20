@@ -28,6 +28,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if @current_user %>
         <li><a href="/auth/logout">LOGOUT</a></li>
+        <li><a href="/user/index"><%= @current_user.name %></a>
           <% else %>
         <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
             <div id="modal1" class="modal">
@@ -70,13 +71,8 @@
 <footer class="page-footer black">
    <div class="footer-copyright">
       <div class="container">
-          © 2015 Copyright Trippers
-          <a class="grey-text text-lighten-4 right" href="/" >About Us</a>
-      </div>
-      <div class="container"> 
-         <a href="https://github.com/AraLawrence/tripper">
-         <img src="assets/images/githubcat.png" alt="Github">
-         </a>
+        <a class="grey-text text-lighten-4 right" href="/">About Us</a>
+        <a href="http://www.iconsdb.com/icons/preview/white/github-6-xxl.png" alt="github" width="50" height="50"/></a>
       </div>
    </div>
 </footer>
