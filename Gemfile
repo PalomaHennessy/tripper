@@ -38,6 +38,11 @@ gem 'materialize-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+#rest-client for APIs
+gem 'rest-client'
+
+gem 'google_places'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

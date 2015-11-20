@@ -40,6 +40,21 @@
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         </button>
       </form>
+  	</div>
+      <form action="#">
+      <% @spotList.each do |item| %>
+      <div class="well">
+        <input type="checkbox" id="<%=item["name"]%>" />
+        <label for="<%=item["name"]%>">
+        <%= item["name"] %></label>
+        <h6>Rating: <%= item["rating"] %></h6>
+        <h6>Pricing: <%= item["price_level"] %></h6>
+        <h6>Address: <%= item["vicinity"] %></h6>
+        </form>
+
+      </div>
+      <% end %>
+
   </div>
 </div>
 

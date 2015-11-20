@@ -1,3 +1,5 @@
+require 'rest-client'
+
 class TripController < ApplicationController
   before_action :current_user
   def index
@@ -11,6 +13,12 @@ class TripController < ApplicationController
   end
 
   def new
+    lat = 47.6233540
+    long = -122.3301120
+
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
+
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]   
   end
