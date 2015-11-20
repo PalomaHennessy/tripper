@@ -1,7 +1,20 @@
-main {
-    flex: 1 0 auto;
+.card-content {
+	background-color: black;
+	color: white;
 }
 
-nav ul a {
-	color: black;
+.activator {
+	background-color: black;
 }
+
+.waves-effect {
+	background-color: black;
+}
+
+img.activator {
+	margin-top: 10px;
+	margin-left: 16px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+
+	}
