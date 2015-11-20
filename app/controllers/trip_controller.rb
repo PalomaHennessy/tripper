@@ -1,6 +1,7 @@
 require 'rest-client'
 
 class TripController < ApplicationController
+  before_action :current_user
   def index
   end
 
@@ -14,7 +15,8 @@ class TripController < ApplicationController
 
     # radius is equal to 3218 because 3218 meters equals 2 miles
     placesUrl= 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat.to_s+','+long.to_s+'&radius=3218&types=restaurant&name=&key=AIzaSyAfd2FoSveAgDTqdeShPDNCYLcarKHmDic'
-    @results = JSON.parse(response)["results"]
+    @results = JSON.parse(placesUrl)["results"]
+    @gmap = ENV['GOOGLE_DIR']
   end
 
   def edit
@@ -24,6 +26,11 @@ class TripController < ApplicationController
   end
 
   def update
+    # this is where the ajax call is routed to
+    # we will eventually generate choices with this data (yelp or places)
+    puts params["lng"]
+    puts params["lat"]
+    redirect_to trip_new_path
   end
 
   def destroy

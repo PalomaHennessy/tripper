@@ -13,3 +13,10 @@
 	width: 100vw;
 	margin: 0 auto;
 }
+
+// map div needs to be set in order for map to display
+// the size can be changed
+#map {
+	height: 500px;
+}
+

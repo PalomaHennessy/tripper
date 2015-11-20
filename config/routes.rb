@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static/new'
+
   root 'trip#index'
 
   get 'trip/index'
@@ -30,9 +32,14 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
+  get 'static/about'
+
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
+
+  post '/' => 'sessions#create', as: 'sessions_create1'
+  post '/' => 'user#create', as: 'user_create1'
 
   resources :user
   resources :trip
