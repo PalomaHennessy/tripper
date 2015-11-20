@@ -16,6 +16,9 @@ class TripController < ApplicationController
   end
 
   def update
+    puts params["lng"]
+    puts params["lat"]
+    redirect_to trip_new_path
   end
 
   def destroy
