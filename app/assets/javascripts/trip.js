@@ -21,8 +21,9 @@ function initMap() {
 		//(this would set a turn by turn dispaly) 
 		var request = { //object to be passed into directionsService (object) .route() (function)
 			//this is where we will place our start and end points
-		  origin: "Seattle, Washington",
-		  destination: "San Francisco, CA",
+			//we could define these as vars within our script tag before calling map
+		  origin: "Seattle, WA",
+		  destination: "Port Angeles, WA",
 		  travelMode: google.maps.DirectionsTravelMode.DRIVING
 		};
 
@@ -43,7 +44,8 @@ function initMap() {
 		  } else {
 		    marker = new google.maps.Marker({
 		      position: location,
-		      map: map
+		      map: map,
+		      animation: google.maps.Animation.DROP
 		    });
 		  }
 		}
