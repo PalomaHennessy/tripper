@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/new' => 'trip#new', as: 'trip_new'
 
-  get 'trip/edit'
+  get 'trip/:id/edit' => 'trip#edit'
 
   get 'trip/show'
 
