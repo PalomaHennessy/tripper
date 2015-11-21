@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'trip/show'
 
-  get 'trip/update'
+  get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
   get 'trip/destroy'
 
