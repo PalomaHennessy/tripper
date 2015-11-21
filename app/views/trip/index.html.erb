@@ -6,10 +6,17 @@
 	<div class="rowlanding">
 	      <div class="row">
 	  	      <%= form_for :trip, url: trip_create_path do |f|%>
-	          <%=f.text_field :start_point, class: "validate"%>
-	          <%= f.text_field :end_point %>
-	          <%= f.text_field :trip_name %>
+	  	      <div class="col s6">
+	          <i class="material-icons">my_location</i><%=f.text_field :start_point, class: "validate"%>
+	          </div>
+	           <div class="col s6"><%= f.text_field :end_point %></div>
+	          
+	           
+	           <div class="col s12"><%= f.text_field :trip_name %></div>
+	          
+	           <div>
 	          <%= f.submit %>
+	          </div>
 	           <% end %>
 	       </div>
   	</div>
