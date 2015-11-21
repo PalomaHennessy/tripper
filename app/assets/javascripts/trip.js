@@ -21,7 +21,6 @@ function initMap() {
 		//directionsDisplay.setPanel(document.getElementById('panel'));
 		//(this would set a turn by turn dispaly) 
 		var request = { //object to be passed into directionsService (object) .route() (function)
-			//this is where we will place our start and end points
 		  origin: $("#start").html(),
 		  destination: $("#end").html(),
 		  travelMode: google.maps.DirectionsTravelMode.DRIVING
@@ -44,7 +43,8 @@ function initMap() {
 		  } else {
 		    marker = new google.maps.Marker({
 		      position: location,
-		      map: map
+		      map: map,
+		      animation: google.maps.Animation.DROP
 		    });
 		  }
 		}
