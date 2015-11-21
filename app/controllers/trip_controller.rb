@@ -24,20 +24,24 @@ class TripController < ApplicationController
   end
 
   def edit
+    trip = Trip.find params[:id]
+
+    lat = trip.latlngs.last['lat']
+    long =  trip.latlngs.last['long']
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
+    
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
   end
 
   def show
   end
 
   def update
-    lat = params['lat']
-    long = params['lng']
-
-    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
-    
-    @gmap = ENV['GOOGLE_DIR']
-    @trip = Trip.find params[:id]
+    trip = Trip.find params[:id]
+    trip.latlngs.create lat:params['lat'], long:params['lng']
+    render :js => "window.location = '/trip/4/edit'"
   end
 
   def destroy
