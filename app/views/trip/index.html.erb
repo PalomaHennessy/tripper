@@ -7,7 +7,7 @@
 	      <div class="row">
 	  	      <%= form_for :trip, url: trip_create_path do |f|%>
 	  	      <div class="col s6">
-	          <i class="material-icons">my_location</i><%=f.text_field :start_point, class: "validate"%>
+	          <%=f.text_field :start_point, class: "validate"%>
 	          </div>
 	           <div class="col s6"><%= f.text_field :end_point %></div>
 	          
