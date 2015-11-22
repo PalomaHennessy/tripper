@@ -20,8 +20,6 @@ Rails.application.routes.draw do
 
   get 'user/index'
 
-  get 'user/create'
-
   get 'user/new'
 
   get 'user/edit'
@@ -36,6 +34,7 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+  post '/' => 'user#create', as: 'user_create'
   post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'
 
