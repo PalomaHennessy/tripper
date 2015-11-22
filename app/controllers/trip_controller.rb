@@ -13,6 +13,7 @@ class TripController < ApplicationController
   end
 
   def new
+    puts @user
     lat = 47.6233540
     long = -122.3301120
 
@@ -34,7 +35,8 @@ class TripController < ApplicationController
   end
 
   def show
-    @trip = Trip.find params[:id]
+    user = @user.trips.findAll 
+    @trip = user
   end
 
   def update
@@ -44,6 +46,8 @@ class TripController < ApplicationController
   end
 
   def destroy
+    trip.find(params[:id]).delete
+    redirect_to root_path
   end
 
   private 
