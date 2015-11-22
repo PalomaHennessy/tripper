@@ -14,14 +14,22 @@ class TripController < ApplicationController
   end
 
   def new
-    lat = 47.6233540
-    long = -122.3301120
+    # lat = 47.6233540
+    # long = -122.3301120
+
+    # lat = 47.6251940
+    # long = -122.3208160
+
+    lat = 47.8321390
+    long = -122.3608730
 
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'])
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    # @spotList.sort! { |a,b| a.price_level <=> b.price_level}
+    @spotList.sort! { |a,b| b.rating <=> a.rating }
 
     @gmap = ENV['GOOGLE_DIR']
-    # @trip = Trip.find params[:id]   
+    @trip = Trip.find params[:id]   
   end
 
   def edit
