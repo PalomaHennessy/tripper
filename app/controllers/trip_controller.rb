@@ -25,17 +25,16 @@ class TripController < ApplicationController
 
   def edit
     trip = Trip.find params[:id]
-
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
-    
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway']) 
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
   end
 
   def show
+    @trip = Trip.find params[:id]
   end
 
   def update

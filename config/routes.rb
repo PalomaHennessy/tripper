@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'trip/statictrip' => 'trip#show'
+
   get 'static/new'
 
   root 'trip#index'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/edit' => 'trip#edit'
 
-  get 'trip/show'
+  get 'trip/show' => 
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
