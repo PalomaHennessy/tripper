@@ -41,7 +41,7 @@ class TripController < ApplicationController
   def update
     trip = Trip.find params[:id]
     trip.latlngs.create lat:params['lat'], long:params['lng']
-    render :js => "window.location = '/trip/4/edit'"
+    render :js => "window.location = '/trip/" + params[:id] + "/edit'"
   end
 
   def destroy

@@ -54,14 +54,22 @@ function initMap() {
 		  placeMarker(event.latLng);
 		  var lat = marker.getPosition().lat();
 		  var lng = marker.getPosition().lng();
+		  var split = window.location.pathname.split("");
+		  var id = null;
+			var nums = [];
+
+			//this function is in order to pull params through js
+			split.forEach(function(t){
+				if(Number.isInteger(parseInt(t))) {
+					nums.push(t);
+					id = nums.join('');
+				};
+			});
 		  //ajax request that passes the lat long back to the server
 		  $.ajax({
-		  	url: "/trip/4/update",
+		  	url: "/trip/" + id + "/update",
 		  	type: "GET",
-		  	data: {lat, lng},
-		  	success: function(data) {
-		  		console.log(data);
-		  	}
+		  	data: {lat, lng}
 		  }).done(function(){
 		  	console.log("success");
 		  })
