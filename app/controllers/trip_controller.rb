@@ -80,8 +80,15 @@ class TripController < ApplicationController
   end
 
   def delete
-    Destination.find(params[:id]).delete
-    redirect_to trip_change
+    dest = Destination.find(params[:id])
+    trip = Trip.find(params[:dest])
+
+    if trip
+      trip.destinations.delete(dest)
+      dest.delete
+    end
+
+    redirect_to trip_change_path(params[:dest])
   end
 
   def destroy
