@@ -4,6 +4,12 @@ class TripController < ApplicationController
   before_action :current_user
   def index
   end
+ 
+  # generate change page
+  def change
+    @trip = Trip.find(params[:id])
+    @destinations = Trip.find(params[:id]).destinations
+  end
 
   def create
 
@@ -14,7 +20,35 @@ class TripController < ApplicationController
     trip = User.find(user).trips.create trip_params
     @trip = trip
     redirect_to trip_new_path(trip.id)
+  end
 
+  def pseudonew
+    lat = 0
+    long = 0
+
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    # @spotList.sort! { |a,b| a.price_level <=> b.price_level}
+    @spotList.sort! { |a,b| b.rating <=> a.rating }
+
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
+  end
+
+  def pseudoupdate
+    trip = Trip.find params[:id]
+    trip.latlngs.create lat:params['lat'], long:params['lng']
+    render :js => "window.location = '/trip/" + params[:id] + "/pseudoedit'"
+  end
+
+  def pseudoedit
+    trip = Trip.find params[:id]
+    lat = trip.latlngs.last['lat']
+    long =  trip.latlngs.last['long']
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway']) 
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
   end
 
   def new
@@ -37,18 +71,25 @@ class TripController < ApplicationController
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+<<<<<<< HEAD
     @spotList = @client.spots(lat, long, :radius => 8046, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
     @spotList.sort! { |a,b| b.rating <=> a.rating }
+=======
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    list = []
+    @spotList.each do |d|
+      if d.rating
+        list.push(d)
+      end
+    end
+    @spotList = list.sort! { |a,b| b.rating <=> a.rating }
+>>>>>>> 57ba6132c4f4c91c532725314e9f07ad1f54897a
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
   end
 
   def statictrip
-    # user = User.find(@current_user.id)
-    # @trip = user.trips
-    # puts @current_user.id
     @trip = User.find(@current_user.id).trips
-    # render json: @trip
   end
 
   def update
@@ -57,8 +98,21 @@ class TripController < ApplicationController
     render :js => "window.location = '/trip/" + params[:id] + "/edit'"
   end
 
+  def delete
+    dest = Destination.find(params[:id])
+    trip = Trip.find(params[:dest])
+
+    if trip
+      trip.destinations.delete(dest)
+      dest.delete
+    end
+
+    redirect_to trip_change_path(params[:dest])
+  end
+
   def destroy
-    trip.find(params[:id]).delete
+    @trip = Trip.find(params[:id])
+    @trip.destroy
     redirect_to root_path
   end
 

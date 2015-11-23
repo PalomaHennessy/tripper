@@ -13,8 +13,22 @@
 
 #hlanding {
 	margin-top: 50px;
+	color: white;
+
 }
 
 input[type=text] {
 	color: white;
 }
+
+
+#wrapper {
+	position:relative;
+	z-index: 0;
+	// @media screen and (max-width: 770px){
+	// 	height: 360px;
+	// }
+}
+
+
+

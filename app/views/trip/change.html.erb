@@ -1,0 +1,7 @@
+<h1><%= @trip.trip_name %></h1>
+
+<% @destinations.each do |d| %>
+  <p> <%= d.place %> </p>
+  <%= link_to "change", trip_remap_path(params[:id], d.id) %>
+  <%= link_to "delete", re_delete_path(params[:id], d.id) %> 
+<% end %>

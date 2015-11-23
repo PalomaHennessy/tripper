@@ -1,10 +1,6 @@
 //styles for ALL layout
 
 
-#trip-form {
-	text-align: center;
-}
-
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @mixin cover-background($img-uri, $background-top:"center", $background-left:"center", $background-attachment:"fixed") {
   background: url($img-uri) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
@@ -15,7 +11,7 @@
 }
 
 html { 
-	@include cover-background('http://www.incite-pictures.com/wp-content/uploads/2015/06/bg_road2.jpg');
+  @include cover-background('http://www.incite-pictures.com/wp-content/uploads/2015/06/bg_road2.jpg');
 }
 
 body {
@@ -30,7 +26,7 @@ main {
 }
 
 nav ul a {
-	color: black;
+  color: black;
   font-family: 'Sanchez', serif;
 }
 
@@ -55,10 +51,25 @@ nav ul a {
 
 nav .input-field input{
       margin-left: 30px;
-    }
+}
 .footer-copyright {
   margin-bottom: 20px;
 }
 
 
+footer {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+.nav-wrapper {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+}
+
+#trip-form {
+	text-align: center;
+}
 
