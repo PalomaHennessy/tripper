@@ -6,7 +6,8 @@ class TripController < ApplicationController
   end
 
   def create
-    trip= Trip.create trip_params
+    user = @current_user.id
+    trip = User.find(user).trips.create trip_params
     @trip = trip
     redirect_to trip_new_path(trip.id)
 
@@ -34,9 +35,12 @@ class TripController < ApplicationController
     @trip = Trip.find params[:id]
   end
 
-  def show
-    user = @user.trips.findAll 
-    @trip = user
+  def statictrip
+    # user = User.find(@current_user.id)
+    # @trip = user.trips
+    # puts @current_user.id
+    @trip = User.find(@current_user.id).trips
+    # render json: @trip
   end
 
   def update

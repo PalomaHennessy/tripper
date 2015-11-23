@@ -2,8 +2,8 @@
 
 <% @trip.each do |trip| %>
 <div class="trips">
-<%= @trip.trip_name %>
-<div><a class="waves-effect waves-light btn black-text"><%= trip.submit "Edit this Trip", edit_trip%></a></div>
+<%= trip.trip_name%>
+<div><a class="waves-effect waves-light btn black-text"><%= link_to "Edit this Trip", edit_trip_path(trip.id)%></a></div>
 <div><a class="waves-effect waves-light btn red black-text"><%= link_to 'Delete Trip', method: :delete %></a></div>
 </div>
 <% end %>

@@ -41,17 +41,17 @@
           <% else %>
             <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
             <div id="modal1" class="modal">
-            <div class="modal-content">
-            <h4 id="loginheader">Login</h4>
-            <div class="row">
-                <%= form_for :user do |u|%>
-                  <%= u.text_field :email, placeholder: 'Email'%>
-                  <%= u.password_field :password, placeholder: 'Password'%>
-                  <%= u.submit 'Login'%>
-                <%end%>
-        <%end%> 
-              </div>   
-            </div>
+               <div class="modal-content">
+               <h4 id="loginheader">Login</h4>
+                  <div class="row">
+                    <%= form_for :user, url: auth_user_path do |u|%>
+                      <%= u.text_field :email, placeholder: 'Email'%>
+                      <%= u.password_field :password, placeholder: 'Password'%>
+                      <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>
+                    <%end%>
+                  <% end %>
+                  </div>   
+               </div>
                <div class="modal-footer">
                <a href="/auth" class="modal-action modal-close waves-effect waves-green btn-flat">Login</a>
                <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
@@ -62,12 +62,12 @@
                <div class="modal-content">
                <h4 id="loginheader">Sign Up</h4>
                <div class="row">
-                <%= form_for :user do |f| %>
-                  <%= f.text_field :email, placeholder: 'Email'%>
-                  <%= f.password_field :password, placeholder: 'password' %>
-                  <%= f.text_field :name, placeholder: 'name'%>
-                  <%= f.submit 'Sign me up!', class: 'btn btn-flat' %>
-                <% end %>
+            <%= form_for :user, url: user_create_path do |f| %>
+              <%= f.text_field :email, placeholder: 'Email'%>
+              <%= f.password_field :password, placeholder: 'password' %>
+              <%= f.text_field :name, placeholder: 'name'%>
+              <%= f.submit 'Sign me up!', class: 'btn btn-flat' %>
+          <% end %>
 
       </ul>
     </div>

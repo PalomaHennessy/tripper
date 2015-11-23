@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'trip/statictrip' => 'trip#show'
+  get 'trip/statictrip' => 'trip#statictrip'
 
   get 'static/new'
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/new' => 'trip#new', as: 'trip_new'
 
-  get 'trip/:id/edit' => 'trip#edit'
+  get 'trip/:id/edit' => 'trip#edit', as: 'edit_trip'
 
   get 'trip/show' 
 
@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   get 'trip/destroy'
 
   get 'user/index'
-
-  get 'user/create'
 
   get 'user/new'
 
@@ -34,10 +32,13 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
+  get 'auth' => 'sessions#create'
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+  post '/' => 'sessions#create', as: 'auth_user'
+  post '/' => 'user#create', as: 'user_create'
   post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'
 
