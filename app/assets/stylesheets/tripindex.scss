@@ -18,7 +18,11 @@
 }
 
 input[type=text] {
-	color: white;
+	color: black;
+}
+
+input[type=password] {
+	color: black;
 }
 
 
@@ -30,7 +34,5 @@ input[type=text] {
 // 	// }
 }
 
-#materialize-lean-overlay-1 {
-	display: hidden;
-}
+
 
