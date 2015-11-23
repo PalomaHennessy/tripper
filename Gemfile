@@ -36,8 +36,6 @@ gem 'materialize-sass'
 
 gem 'rails_12factor', group: :production
 
- gem 'spring'
-
 # OAUTH Gem
 gem 'omniauth'
 gem 'omniauth-facebook'
