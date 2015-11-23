@@ -43,6 +43,9 @@ gem 'rest-client'
 
 gem 'google_places'
 
+#Gritter Gem
+gem 'gritter'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

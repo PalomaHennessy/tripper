@@ -10,7 +10,7 @@ class AuthController < ApplicationController
 			u.name = provider_user['info']['name']
 			u.email = provider_user['info']['email']
 		end
-
+		gflash :success => "You are now logged in!"
 		session[:user_id] = user.id
 		redirect_to root_path
 	end

@@ -63,6 +63,7 @@ GEM
       activesupport (>= 4.1.0)
     google_places (0.32.0)
       httparty (~> 0.13.1)
+    gritter (1.2.0)
     hashie (3.4.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -190,6 +191,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   email_validator
   google_places
+  gritter
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
