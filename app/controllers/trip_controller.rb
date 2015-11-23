@@ -72,7 +72,13 @@ class TripController < ApplicationController
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
     @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
-    @spotList.sort! { |a,b| b.rating <=> a.rating }
+    list = []
+    @spotList.each do |d|
+      if d.rating
+        list.push(d)
+      end
+    end
+    @spotList = list.sort! { |a,b| b.rating <=> a.rating }
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
   end
