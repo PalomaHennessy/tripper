@@ -1,9 +1,8 @@
-<h1>Your Trips</h1>
-
-<% @trip.each do |trip| %>
+<h1 id="editheader">Your Trips</h1>
 <div class="trips">
-<%= trip.trip_name%>
-<div><a class="waves-effect waves-light btn black-text"><%= button_to "Edit this Trip", edit_trip_path(trip.id)%></a></div>
-<div><a class="waves-effect waves-light btn red black-text"><%= button_to 'Delete Trip', trip, method: :delete, :onclick => "Return confirm('Are you sure you want to delete this trip?')" %></a></div>
+	<% @trip.each do |trip| %>
+		<h2 id="tripnames"><%= trip.trip_name%></h2>
+			<a id="editbtn" class="waves-effect waves-light btn black-text"><%= button_to "Edit this Trip", edit_trip_path(trip.id)%></a>
+			<a id="deletebtn" class="waves-effect waves-light btn #ef5350 red lighten-1 black-text"><%= button_to 'Delete Trip', trip, method: :delete%></a>
+	<% end %>
 </div>
-<% end %>
