@@ -17,10 +17,23 @@ class TripController < ApplicationController
     redirect_to trip_new_path(trip.id)
   end
 
+  def pseudonew
+    lat = 0
+    long = 0
+
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    # @spotList.sort! { |a,b| a.price_level <=> b.price_level}
+    @spotList.sort! { |a,b| b.rating <=> a.rating }
+
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
+  end
+
   def pseudoupdate
     trip = Trip.find params[:id]
     trip.latlngs.create lat:params['lat'], long:params['lng']
-    render :js => "window.location = '/trip/" + params[:id] + "/editdest'"
+    render :js => "window.location = '/trip/" + params[:id] + "/pseudoedit'"
   end
 
   def pseudoedit
@@ -66,8 +79,13 @@ class TripController < ApplicationController
     render :js => "window.location = '/trip/" + params[:id] + "/edit'"
   end
 
+  def delete
+    Destination.find(params[:id]).delete
+    redirect_to trip_change
+  end
+
   def destroy
-    trip.find(params[:id]).delete
+    # trip.find(params[:id]).destroy
     redirect_to root_path
   end
 
