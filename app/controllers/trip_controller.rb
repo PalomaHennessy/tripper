@@ -23,6 +23,12 @@ class TripController < ApplicationController
     redirect_to trip_new_path(trip.id)
   end
 
+  def add
+    trip = Trip.find(params[:id])
+    trip.destinations.create dest_params
+    redirect_to trip_new_path(params[:id])
+  end
+
   def pseudonew
     lat = 0
     long = 0
@@ -114,6 +120,10 @@ class TripController < ApplicationController
   end
 
   private 
+  
+  def dest_params
+    params.require(:destination).permit(:place, :url)
+  end
 
   def trip_params
     params.require(:trip).permit(:start_point, :end_point, :trip_name)

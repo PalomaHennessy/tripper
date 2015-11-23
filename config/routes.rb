@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'trip/:id/edit' => 'trip#edit', as: 'edit_trip'
 
+  post 'trip/:id/edit' => 'trip#add'
+
   get 'trip/show' 
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
