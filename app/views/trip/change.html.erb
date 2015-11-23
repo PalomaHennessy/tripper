@@ -1,0 +1,6 @@
+<h1><%= @trip.trip_name %></h1>
+
+<% @destinations.each do |d| %>
+  <p> <%= d.place %> </p>
+  <%= link_to "change", trip_redo_path(@trip.id) %> 
+<% end %>

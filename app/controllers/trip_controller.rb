@@ -5,12 +5,32 @@ class TripController < ApplicationController
   def index
   end
 
+  def change
+    @trip = Trip.find(params[:id])
+    @destinations = Trip.find(params[:id]).destinations
+  end
+
   def create
     user = @current_user.id
     trip = User.find(user).trips.create trip_params
     @trip = trip
     redirect_to trip_new_path(trip.id)
+  end
 
+  def pseudoupdate
+    trip = Trip.find params[:id]
+    trip.latlngs.create lat:params['lat'], long:params['lng']
+    render :js => "window.location = '/trip/" + params[:id] + "/editdest'"
+  end
+
+  def pseudoedit
+    trip = Trip.find params[:id]
+    lat = trip.latlngs.last['lat']
+    long =  trip.latlngs.last['long']
+    @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway']) 
+    @gmap = ENV['GOOGLE_DIR']
+    @trip = Trip.find params[:id]
   end
 
   def new
@@ -37,11 +57,7 @@ class TripController < ApplicationController
   end
 
   def statictrip
-    # user = User.find(@current_user.id)
-    # @trip = user.trips
-    # puts @current_user.id
     @trip = User.find(@current_user.id).trips
-    # render json: @trip
   end
 
   def update
