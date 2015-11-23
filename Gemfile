@@ -39,6 +39,7 @@ gem 'materialize-sass'
 # OAUTH Gem
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 #rest-client for APIs
 gem 'rest-client'
@@ -51,6 +52,7 @@ end
 
 #Gritter Gem
 gem 'gritter'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
