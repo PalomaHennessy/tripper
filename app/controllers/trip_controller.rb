@@ -85,7 +85,8 @@ class TripController < ApplicationController
   end
 
   def destroy
-    # trip.find(params[:id]).destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
     redirect_to root_path
   end
 

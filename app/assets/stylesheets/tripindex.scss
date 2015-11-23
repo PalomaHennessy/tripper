@@ -13,8 +13,20 @@
 
 #hlanding {
 	margin-top: 50px;
+	color: white;
+
 }
 
 input[type=text] {
 	color: white;
 }
+
+#nav-wrapper {
+	position: absolute;
+	z-index: 3;
+}
+
+// #wrapper {
+// 	position:relative;
+// 	z-index: 0;
+// }
