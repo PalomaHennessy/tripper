@@ -36,11 +36,7 @@ class TripController < ApplicationController
   end
 
   def statictrip
-    # user = User.find(@current_user.id)
-    # @trip = user.trips
-    # puts @current_user.id
     @trip = User.find(@current_user.id).trips
-    # render json: @trip
   end
 
   def update
@@ -50,7 +46,8 @@ class TripController < ApplicationController
   end
 
   def destroy
-    trip.find(params[:id]).delete
+    @trip = Trip.find(params[:id])
+    @trip.destroy
     redirect_to root_path
   end
 
