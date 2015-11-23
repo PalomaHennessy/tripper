@@ -82,6 +82,7 @@ class TripController < ApplicationController
     @spotList = list.sort! { |a,b| b.rating <=> a.rating }
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
+    @destination = Destination.new
   end
 
   def statictrip

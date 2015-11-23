@@ -50,7 +50,7 @@ group :production do
 end
 
 #Gritter Gem
-gem 'gritter']
+gem 'gritter'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
