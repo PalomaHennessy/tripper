@@ -36,10 +36,10 @@
       <a href="/" class="brand-logo center">Tripper</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if @current_user %>
-        <li><a href="/auth/logout">LOGOUT</a></li>
-        <li><a href="/user/index"><%= @current_user.name %></a>
+            <li><a href="/auth/logout">LOGOUT</a></li>
+            <li><a href="/user/index"><%= @current_user.name %></a>
           <% else %>
-        <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
             <div id="modal1" class="modal">
                <div class="modal-content">
                <h4 id="loginheader">Login</h4>
@@ -68,6 +68,7 @@
               <%= f.text_field :name, placeholder: 'name'%>
               <%= f.submit 'Sign me up!', class: 'btn btn-flat' %>
           <% end %>
+
       </ul>
     </div>
   </nav>

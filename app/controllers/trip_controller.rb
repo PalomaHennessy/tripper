@@ -6,13 +6,15 @@ class TripController < ApplicationController
   end
 
   def create
-    trip= Trip.create trip_params
+    user = @current_user.id
+    trip = User.find(user).trips.create trip_params
     @trip = trip
     redirect_to trip_new_path(trip.id)
 
   end
 
   def new
+    puts @user
     lat = 47.6233540
     long = -122.3301120
 
@@ -25,17 +27,20 @@ class TripController < ApplicationController
 
   def edit
     trip = Trip.find params[:id]
-
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway'])
-    
+    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway']) 
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
   end
 
-  def show
+  def statictrip
+    # user = User.find(@current_user.id)
+    # @trip = user.trips
+    # puts @current_user.id
+    @trip = User.find(@current_user.id).trips
+    # render json: @trip
   end
 
   def update
@@ -45,6 +50,8 @@ class TripController < ApplicationController
   end
 
   def destroy
+    trip.find(params[:id]).delete
+    redirect_to root_path
   end
 
   private 
