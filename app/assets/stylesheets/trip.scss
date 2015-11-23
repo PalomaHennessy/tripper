@@ -35,7 +35,7 @@ nav ul a {
 }
 
 .modal {
-  position: fixed;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -47,6 +47,7 @@ nav ul a {
   transition: opacity 400ms ease-in;
   color: black;
   font-family: 'Sanchez', serif;
+  // float: inherit;
 }
 
 nav .input-field input{
@@ -59,17 +60,33 @@ nav .input-field input{
 
 footer {
   position: absolute;
-  z-index: 2;
+  z-index: 99;
   width: 100%;
 }
 
 .nav-wrapper {
   position: absolute;
-  z-index: 3;
+  z-index: 99;
   width: 100%;
 }
 
 #trip-form {
 	text-align: center;
 }
+
+// .lean-overlay {
+//   // z-index:  !important;
+//   position: fixed;
+//   top: -100px;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   height: 125%;
+//   width: 100%;
+//   background: #000;
+//   display: none;
+//   will-change: opacity;
+// }
+
+
 

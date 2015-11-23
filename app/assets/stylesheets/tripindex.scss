@@ -24,11 +24,13 @@ input[type=text] {
 
 #wrapper {
 	position:relative;
-	z-index: 0;
-	// @media screen and (max-width: 770px){
-	// 	height: 360px;
-	// }
+// 	z-index: -100;
+// 	// @media screen and (max-width: 770px){
+// 	// 	height: 360px;
+// 	// }
 }
 
-
+#materialize-lean-overlay-1 {
+	display: hidden;
+}
 

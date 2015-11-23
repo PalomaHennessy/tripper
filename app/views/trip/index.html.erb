@@ -1,3 +1,4 @@
+
 <div id="wrapper">
 	<div class = "container" id = "trip-form">
 		<h1 id="hlanding">Trippin Made Easy.</h1>
@@ -7,21 +8,17 @@
 		<div class="rowlanding">
 		      <div class="row">
 		  	      <%= form_for :trip, url: trip_create_path do |f|%>
-		  	      <div class="col s6">
-			          <%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true %>
-			          </div>
-			           <div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location'%></div>
-			           <div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name' %></div>
-			           <div><a class="waves-effect waves-light btn #ffe082 amber lighten-3 black-text"><%= f.submit %></a></div>
+		  	       <div class="col s6"><%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true %> </div>
+		           <div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location'%></div>
+		           <div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name' %></div>
+		           <div><a class="waves-effect waves-light btn #ffe082 amber lighten-3 black-text"><%= f.submit %></a></div>
 		           <% end %>
 		       </div>
 	  	</div>
 	</div>
 </div>	
 
-<%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
-
-<!--  <div class="input-field col s6">
+      <!--  <div class="i`nput-field col s6">
 	          <i class="material-icons prefix">location_on</i>
 	          <input id="icon_telephone" type="text" class="validate">
 	          <label for="icon_telephone">Destination</label>
