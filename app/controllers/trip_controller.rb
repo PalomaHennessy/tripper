@@ -4,7 +4,8 @@ class TripController < ApplicationController
   before_action :current_user
   def index
   end
-
+ 
+  # generate change page
   def change
     @trip = Trip.find(params[:id])
     @destinations = Trip.find(params[:id]).destinations

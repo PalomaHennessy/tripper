@@ -2,6 +2,6 @@
 
 <% @destinations.each do |d| %>
   <p> <%= d.place %> </p>
-  <%= link_to "change", trip_remap_path(@trip.id) %>
-  <%= link_to "delete", re_delete_path(d.id, params[:id]) %> 
+  <%= link_to "change", trip_remap_path(params[:id], d.id) %>
+  <%= link_to "delete", re_delete_path(params[:id], d.id) %> 
 <% end %>
