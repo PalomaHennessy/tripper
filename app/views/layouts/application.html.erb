@@ -7,18 +7,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 <!-- facebook share button -->
@@ -40,7 +36,7 @@
         <li><a href="/trip/statictrip"><%= @current_user.name %></a></li>
         <% else %>
         <li><a class="waves-effect waves-light btn modal-trigger black" data-backdrop='false' href="#loginModal1">Login</a></li>
-        <li><a class="waves-effect waves-light btn modal-trigger black" data-backdrop-'false' href="#signUpModal1">Sign Up</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger black" data-backdrop='false' href="#signUpModal1">Sign Up</a></li>
         <% end %>
       </ul>
     </div>
@@ -54,7 +50,7 @@
    <div class="footer-copyright">
       <div class="container">
         <a class="grey-text text-lighten-4 right" href="/static/new">About Us</a>
-        <a href="http://www.iconsdb.com/icons/preview/white/github-6-xxl.png" alt="github" width="50" height="50"/></a>
+        <a href="http://www.iconsdb.com/icons/preview/white/github-6-xxl.png" alt="github" width="50" height="50"></a>
       </div>
    </div>
 </footer>
@@ -62,14 +58,14 @@
 <div id="loginModal1" class="modal">
   <div class="modal-content">
     <h4 id="loginheader">Login</h4>
-    <div class="row">
+    <div class="rowlanding">
       <%= form_for :user, url: auth_user_path do |u|%>
       <%= u.text_field :email, placeholder: 'Email'%>
       <%= u.password_field :password, placeholder: 'Password'%>
     </div>   
   </div>
   <div class="modal-footer">
-    <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat" %>  
+    <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>  
     <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
   </div>
 <% end %>
@@ -78,7 +74,7 @@
 <div id="signUpModal1" class="modal">
   <div class="modal-content">
     <h4 id="loginheader">Sign Up</h4>
-    <div class="row">
+    <div class="rowlanding">
       <%= form_for :user, url: user_create_path do |f| %>
       <%= f.text_field :name, placeholder: 'Name'%>
       <%= f.text_field :email, placeholder: 'Email'%>
