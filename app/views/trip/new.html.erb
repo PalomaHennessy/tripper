@@ -1,58 +1,38 @@
-<!-- <h1>Trip#new</h1>
-<p>Find me in app/views/trip/new.html.erb</p> -->
 <div class="row">
   <div class="col-trip-edit col s6">
     <span class="flow-text">
-      <h5>Map div here</h5>
+      <div id="map"></div>
+      <div id="panel"></div>
     </span>
-    <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/directions?key=<%= @gmap %>
-      &origin=Seattle,Washington
-      &destination=San+Francisco,California" allowfullscreen>
-  </iframe>
   </div>
 	<div class="col-trip-edit col s6">
-		<h5>Trip Edit Page</h5>
-		<div class="row">
-    		<form class="col s12">
-     			<div class="row">
-       				<div class="input-field col s12">
-        				<input id="trip_name" type="text" class="validate">
-          			<label for="trip_name">Trip Name</label>
-        			</div>
-      		</div>
-    		</form>
-  	</div>
-  		 <form action="#">
-        <p>
-          <input type="checkbox" id="test1" />
-          <label for="test1">Option One</label>
-        </p>
-        <p>
-          <input type="checkbox" id="test2" />
-          <label for="test2">Option Two</label>
-        </p>
-        <p>
-          <input type="checkbox" id="test3" />
-          <label for="test3">Option Three</label>
-        </p>
-        <p>
-          <input type="checkbox" id="test4" />
-          <label for="test4">Option Four</label>
-        </p>
-        <p>
-          <input type="checkbox" id="test5" />
-          <label for="test5">Option Five</label>
-        </p>
-        <p>
-          <input type="checkbox" id="test6" />
-          <label for="test6">Option Six</label>
-        </p>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+		<!-- <h1>Plan your Trip</h1> -->
+    <div class="trip_box">
+     	<div class="row">
+        <h3><%= @trip.trip_name %></h3>
+      </div>
+      <form action="#">
+      <% @spotList.take(3).each do |item| %>
+      <div class="well">
+        <input type="checkbox" id="<%=item["name"]%>" />
+        <label for="<%=item["name"]%>">
+        <h5 class="checkbox_items"><%= item["name"] %></h5></label>
+        <h6><a href = "http://maps.google.com/maps?q=<%= item["vicinity"] %>" target="_blank"><%= item["vicinity"] %></a></h6>
+        <h6>Rating: <%= (item["rating"]*20).floor %>%</h6>
+        <h6>Pricing: <%= item["price_level"] %>/4</h6>
+      </div>
+      <% end %>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         </button>
       </form>
+    </div>
   </div>
 </div>
+
+<div class="hide">
+  <div id="start"><%= @trip.start_point %></div>
+  <div id="end"><%= @trip.end_point %></div>
+</div>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
+</script>

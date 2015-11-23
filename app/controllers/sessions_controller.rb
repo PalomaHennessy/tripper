@@ -13,9 +13,13 @@ class SessionsController < ApplicationController
     	flash[:danger] = "Invalid credentials."
     	redirect_to root_path
   	end
+    puts "Logging in!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
 
   def destroy
+    session[:user_id] = nil
+    flash[:success] = "You are now logged out"
+    redirect_to root_path
   end
 
   private 
