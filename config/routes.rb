@@ -30,10 +30,12 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
+  get 'auth' => 'sessions#create'
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+  post '/' => 'sessions#create', as: 'auth_user'
   post '/' => 'user#create', as: 'user_create'
   post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'

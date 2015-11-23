@@ -44,10 +44,10 @@
                <div class="modal-content">
                <h4 id="loginheader">Login</h4>
                   <div class="row">
-                    <%= form_for :user, url: user_create_path do |u|%>
+                    <%= form_for :user, url: auth_user_path do |u|%>
                       <%= u.text_field :email, placeholder: 'Email'%>
                       <%= u.password_field :password, placeholder: 'Password'%>
-                      <%= u.submit 'Login'%>
+                      <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>
                     <%end%>
                   <% end %>
                   </div>   
@@ -62,7 +62,7 @@
                <div class="modal-content">
                <h4 id="loginheader">Sign Up</h4>
                <div class="row">
-            <%= form_for :user do |f| %>
+            <%= form_for :user, url: user_create_path do |f| %>
               <%= f.text_field :email, placeholder: 'Email'%>
               <%= f.password_field :password, placeholder: 'password' %>
               <%= f.text_field :name, placeholder: 'name'%>
