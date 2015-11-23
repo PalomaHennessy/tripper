@@ -34,7 +34,7 @@ gem 'email_validator'
 
 gem 'materialize-sass'
 
-gem 'rails_12factor', group: :production
+
 
 # OAUTH Gem
 gem 'omniauth'
@@ -44,6 +44,11 @@ gem 'omniauth-facebook'
 gem 'rest-client'
 
 gem 'google_places'
+
+group :production do
+  gem 'rails_12factor'
+end
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
