@@ -14,6 +14,7 @@ class TripController < ApplicationController
     user = @current_user.id
     trip = User.find(user).trips.create trip_params
     @trip = trip
+    gflash :success => "Trip created!"
     redirect_to trip_new_path(trip.id)
   end
 

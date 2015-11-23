@@ -20,6 +20,7 @@ class AuthController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
+		gflash :error => "You are now logged out!"
 		redirect_to root_path
 	end
 
@@ -28,5 +29,4 @@ class AuthController < ApplicationController
 	  def user_params
 	    params.require(:user).permit(:user_id, :email, :password)
 	  end
-
 end
