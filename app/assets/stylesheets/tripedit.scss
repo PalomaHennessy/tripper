@@ -1,0 +1,45 @@
+//css for the static trip edit and delete page
+#editheader {
+	// margin-left: 30px;
+	text-align: center;
+
+}
+
+.trips {
+	margin-left: 30px;
+	margin-top: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+}
+
+#editbtn {
+	margin: 10px;
+	margin-bottom:20px;
+	padding-left: 20px;
+	box-shadow: 1px 6px 15px rgba(0,0,0,0.5);
+
+}
+
+#deletebtn {
+	margin: 10px;
+	padding-left: 20px;
+	margin-bottom:20px;
+	box-shadow: 1px 6px 15px rgba(0,0,0,0.5);
+}
+
+#tripnames {
+	margin-left: 20px;
+	padding-top: 20px;
+
+}
+// ul {
+// 	list-style-type:none;
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+// li {
+// 	display:inline;
+// }
