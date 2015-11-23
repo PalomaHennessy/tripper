@@ -34,6 +34,8 @@ gem 'email_validator'
 
 gem 'materialize-sass'
 
+gem 'rails_12factor', group: :production
+
 # OAUTH Gem
 gem 'omniauth'
 gem 'omniauth-facebook'
