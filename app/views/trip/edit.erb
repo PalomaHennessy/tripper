@@ -14,9 +14,9 @@
       <form action="#">
       <% @spotList.take(3).each do |item| %>
       <div class="well">
-        <%= check_box_tag (:place), id: item["name"]%>
-        <%= label_tag :place, item["name"], id: item["name"] %>
-    
+        <input type="checkbox" id="<%=item["name"]%>" />
+        <label for="<%=item["name"]%>">
+        <h5 class="checkbox_items"><%= item["name"] %></h5></label>
         <h6><a href = "http://maps.google.com/maps?q=<%= item["vicinity"] %>" target="_blank"><%= item["vicinity"] %></a></h6>
         <h6>Rating: <%= (item["rating"]*20).floor %>%</h6>
         <h6>Pricing: <%= item["price_level"] %>/4</h6>
