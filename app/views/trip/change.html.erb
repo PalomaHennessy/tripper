@@ -11,9 +11,17 @@
       <h1><%= @trip.trip_name %></h1>
      	<% @destinations.each do |d| %>
 			  <p> <%= d.place %> </p>
-			  <%= link_to "change", trip_remap_path(params[:id], d.id) %>
-			  <%= link_to "delete", re_delete_path(params[:id], d.id) %> 
+			  <%= link_to "change", trip_remap_path(params[:id], d.id), class: "btn btn-small teal" %>
+			  <%= link_to "delete", re_delete_path(params[:id], d.id), class: "btn btn-small red" %> 
 			<% end %>
     </div>
   </div>
 </div>
+
+<div class="hide">
+  <div id="start"><%= @trip.start_point %></div>
+  <div id="end"><%= @trip.end_point %></div>
+</div>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
+</script>
