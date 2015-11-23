@@ -32,13 +32,15 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+<header>
+<!-- <section class="container"> -->
   <nav>
     <div class="nav-wrapper black">
       <a href="/" class="brand-logo center">Tripper</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if @current_user %>
         <li><a href="/auth/logout">LOGOUT</a></li>
-        <li><a href="/user/index"><%= @current_user.name %></a>
+        <li><a href="/trip/statictrip"><%= @current_user.name %></a>
 
           <% else %>
           <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
@@ -73,6 +75,8 @@
               </ul>
             </div>
           </nav>
+<!--   </section>  -->
+</header> 
 
 <main>
 <%= yield %>
@@ -87,7 +91,7 @@
       </div>
    </div>
 </footer>
-  
+
 
 <script>
 $(document).ready(function() {
