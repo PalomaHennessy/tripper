@@ -45,15 +45,12 @@ gem 'rest-client'
 
 gem 'google_places'
 
-<<<<<<< HEAD
 group :production do
   gem 'rails_12factor'
 end
 
-=======
 #Gritter Gem
-gem 'gritter'
->>>>>>> a4bc55f7ca10e2b966e9693522401f59456ae371
+gem 'gritter']
 
 # Use Unicorn as the app server
 # gem 'unicorn'
