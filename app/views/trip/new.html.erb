@@ -16,13 +16,10 @@
       <div class="well">
         <input type="checkbox" id="<%=item["name"]%>" />
         <label for="<%=item["name"]%>">
-<!-- <<<<<<< HEAD -->
         <h5 class="checkbox_items"><%= item["name"] %></h5></label>
         <h6><a href = "http://maps.google.com/maps?q=<%= item["vicinity"] %>" target="_blank"><%= item["vicinity"] %></a></h6>
         <h6>Rating: <%= (item["rating"]*20).floor %>%</h6>
         <h6>Pricing: <%= item["price_level"] %>/4</h6>
-<!-- ======= -->
-<!-- >>>>>>> 12fa6a0b5208f20f398167c07fad29f35eff5482 -->
       </div>
       <% end %>
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
