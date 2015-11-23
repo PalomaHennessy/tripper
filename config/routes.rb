@@ -18,6 +18,12 @@ Rails.application.routes.draw do
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
+  get 'trip/:id/pseudoedit' => 'trip#pseudoedit', as: 'trip_redo'
+
+  get 'trip/:id/pseudoupdate' => 'trip#pseudoupdate'
+
+  get 'trip/:id/pseudonew' => 'trip#pseudonew', as: 'trip_remap'
+
   get 'trip/destroy'
 
   get 'user/index'
@@ -31,6 +37,10 @@ Rails.application.routes.draw do
   get 'user/update'
 
   get 'user/destroy'
+
+  get 'trip/:id/delete/:dest' => 'trip#delete', as: 're_delete'
+
+  get 'trip/:id/change' => 'trip#change', as: 'trip_change'
 
   get 'auth' => 'sessions#create'
   get 'auth/logout' => 'auth#logout'

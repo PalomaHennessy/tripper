@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Tripper</title>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -18,60 +18,65 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <link rel="styesheet" href="assets/stylesheets/styles">
   <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
 <!-- facebook share button -->
  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
+<header>
+<!-- <section class="container"> -->
   <nav>
     <div class="nav-wrapper black">
       <a href="/" class="brand-logo center">Tripper</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if @current_user %>
-            <li><a href="/auth/logout">LOGOUT</a></li>
-            <li><a href="/user/index"><%= @current_user.name %></a>
-          <% else %>
-            <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
-            <div id="modal1" class="modal">
-               <div class="modal-content">
-               <h4 id="loginheader">Login</h4>
-                  <div class="row">
-                    <%= form_for :user, url: auth_user_path do |u|%>
-                      <%= u.text_field :email, placeholder: 'Email'%>
-                      <%= u.password_field :password, placeholder: 'Password'%>
-                      <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>
-                    <%end%>
-                  <% end %>
-                  </div>   
-               </div>
-               <div class="modal-footer">
-               <a href="/auth" class="modal-action modal-close waves-effect waves-green btn-flat">Login</a>
-               <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
-               </div>
-            </div>
-        <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal2">Sign Up</a></li>
-            <div id="modal2" class="modal">
-               <div class="modal-content">
-               <h4 id="loginheader">Sign Up</h4>
-               <div class="row">
-            <%= form_for :user, url: user_create_path do |f| %>
-              <%= f.text_field :email, placeholder: 'Email'%>
-              <%= f.password_field :password, placeholder: 'password' %>
-              <%= f.text_field :name, placeholder: 'name'%>
-              <%= f.submit 'Sign me up!', class: 'btn btn-flat' %>
-          <% end %>
+        <li><a href="/auth/logout">LOGOUT</a></li>
+        <li><a href="/trip/statictrip"><%= @current_user.name %></a>
 
-      </ul>
-    </div>
-  </nav>
+          <% else %>
+          <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Login</a></li>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4 id="loginheader">Login</h4>
+              <div class="row">
+                <%= form_for :user, url: auth_user_path do |u|%>
+                <%= u.text_field :email, placeholder: 'Email'%>
+                <%= u.password_field :password, placeholder: 'Password'%>
+                <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>        
+              </div>   
+            </div>
+            <div class="modal-footer">
+              <a href="/auth" class="modal-action modal-close waves-effect waves-green btn-flat">Login</a>
+              <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
+            </div>
+          </div>
+          <% end %>
+          <li><a class="waves-effect waves-light btn modal-trigger black" href="#modal2">Sign Up</a></li>
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4 id="loginheader">Sign Up</h4>
+              <div class="row">
+                <%= form_for :user, url: user_create_path do |f| %>
+                <%= f.text_field :email, placeholder: 'Email'%>
+                <%= f.password_field :password, placeholder: 'password' %>
+                <%= f.text_field :name, placeholder: 'name'%>
+                <%= f.submit 'Sign me up!', class: 'btn btn-flat' %>
+                <% end %>
+                <%end%>
+              </ul>
+            </div>
+          </nav>
+<!--   </section>  -->
+</header> 
 
 <main>
 <%= yield %>
@@ -86,11 +91,12 @@
       </div>
    </div>
 </footer>
-  
+
 
 <script>
 $(document).ready(function() {
-   $('.modal-trigger').leanModal();
+  $('.modal-trigger').leanModal();
+  // $('#wrapper').tubular({videoId: 'ab0TSkLe-E0'});
 });
 </script>
 
