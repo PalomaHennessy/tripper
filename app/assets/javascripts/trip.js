@@ -201,9 +201,9 @@ function initShowMap() {
 
 		//create marker
 	var addMarker = function() {
-		var lati = parseInt($('#' + num).html());
+		var lati = parseFloat($('#' + num).html());
 		num++;
-		var longi = parseInt($('#' + num).html());
+		var longi = parseFloat($('#' + num).html());
 	  marker = new google.maps.Marker({
 	    map: map,
 	    draggable: true,
