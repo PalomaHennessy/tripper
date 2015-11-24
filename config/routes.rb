@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
-  get 'trip/:id/pseudoedit' => 'trip#pseudoedit', as: 'trip_redo'
+  get 'trip/:id/pseudoedit/:dest' => 'trip#pseudoedit', as: 'trip_redo'
 
-  get 'trip/:id/pseudoupdate' => 'trip#pseudoupdate'
+  get 'trip/:id/pseudoupdate/:dest' => 'trip#pseudoupdate'
 
   get 'trip/:id/pseudonew/:dest' => 'trip#pseudonew', as: 'trip_remap'
 

@@ -48,7 +48,7 @@ class TripController < ApplicationController
   def pseudoupdate
     trip = Trip.find params[:id]
     trip.latlngs.create lat:params['lat'], long:params['lng']
-    render :js => "window.location = '/trip/" + params[:id] + "/pseudoedit'"
+    render :js => "window.location = '/trip/" + params[:id] + "/pseudoedit/" + params[:dest] + "'"
   end
 
   def pseudoedit

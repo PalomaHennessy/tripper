@@ -133,19 +133,13 @@ function initNewMap() {
 		  var lat = marker.getPosition().lat();
 		  var lng = marker.getPosition().lng();
 		  var split = window.location.pathname.split("");
-		  var id = null;
-			var nums = [];
+		  var id = $('#paramid').html();
+			var dest = $('#paramdest').html();
 
-			//this function is in order to pull params through js
-			split.forEach(function(t){
-				if(Number.isInteger(parseInt(t))) {
-					nums.push(t);
-					id = nums.join('');
-				};
-			});
+
 		  //ajax request that passes the lat long back to the server
 		  $.ajax({
-		  	url: "/trip/" + id + "/pseudoupdate",
+		  	url: "/trip/" + id + "/pseudoupdate/" + dest,
 		  	type: "GET",
 		  	data: {lat, lng}
 		  }).done(function(){
@@ -203,7 +197,7 @@ function initShowMap() {
 	var addMarker = function() {
 		var lati = parseFloat($('#' + num).html());
 		num++;
-		var longi = parseFloat($('#' + num).html());
+		var longi = parse($('#' + num).html());
 	  marker = new google.maps.Marker({
 	    map: map,
 	    draggable: true,
