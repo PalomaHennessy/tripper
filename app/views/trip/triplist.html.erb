@@ -3,7 +3,7 @@
 <div class="trips">
 	<% @trip.each do |trip| %>
 	<h2 id="tripnames"><%= trip.trip_name%></h2>
-    <%= link_to "Edit this Trip", trip_change_path(trip.id), class: "btn teal"%>
-	  <%= link_to 'delete this trip', trip_delete_path(trip.id), class: "btn red" %>
+    <%= link_to "Edit this Trip", trip_change_path(trip.id), class: "btn teal", id: "editbtn"%>
+	  <%= link_to 'delete this trip', trip_delete_path(trip.id), class: "btn red", id: "deletebtn"%>
 	<% end %>
 </div>
