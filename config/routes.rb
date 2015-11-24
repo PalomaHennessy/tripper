@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get 'user/destroy'
 
   get 'trip/:dest/delete/:id' => 'trip#delete', as: 're_delete'
+  get 'trip/:id/destroy' => 'trip#destroy', as: 'trip_delete'
 
   get 'trip/:id/change' => 'trip#change', as: 'trip_change'
 
