@@ -19,11 +19,12 @@
 </div>
 
 <div class="hide">
+  <div class="type">show</div>
   <div id="paramid"><%= params[:id] %></div>
   <div id="paramdest"><%= params[:dest] %></div>
   <div id="start"><%= @trip.start_point %></div>
   <div id="end"><%= @trip.end_point %></div>
 </div>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initNewMap">
+  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
 </script>

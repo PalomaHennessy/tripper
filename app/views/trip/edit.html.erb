@@ -6,27 +6,22 @@
       <div id="panel"></div>
     </span>
   </div>
-<<<<<<< HEAD:app/views/trip/edit.erb
   <div class="col-trip-edit col s6">
-=======
-  <div class="col-trip-edit col s12 m6">
-    <!-- <h1>Plan your Trip</h1> -->
->>>>>>> 150b356ba2cf980ba962ea4e77c462a6917e0df0:app/views/trip/edit.html.erb
     <div class="trip_box">
       <div class="row">
         <h3><%= @trip.trip_name %></h3>
       </div>
       <% @spotList.take(3).each do |item| %>
-      <div class="white-text card-panel teal">
-        <p><%= item['name'] %></p>
-        <p><%= item['price_level'] %>/4 <%= item['rating'] %>/5</p>
-        <p><a href = "http://maps.google.com/maps?q=<%= item['vicinity'] %>"><%= item['vicinity'] %></a></p>
-        <%= form_for :destination do |d| %>
-        <%= d.text_field :place, value: item['name'], class: "hide" %>
-        <%= d.text_field :url, value: "http://maps.google.com/maps?q=" + item['vicinity'], class: "hide"%>
-        <%= d.submit "choose", class: "btn green" %>
-        <% end %>
-      </div>
+        <div class="white-text card-panel teal trip-places">
+          <p><%= item['name'] %></p>
+          <p>Price level: <%= item['price_level'] %>/4 | Rating: <%= item['rating'] %>/5</p>
+          <p><a href = "http://maps.google.com/maps?q=<%= item['vicinity'] %>"><%= item['vicinity'] %></a></p>
+          <%= form_for :destination do |d| %>
+            <%= d.text_field :place, value: item['name'], class: "hide" %>
+            <%= d.text_field :url, value: "http://maps.google.com/maps?q=" + item['vicinity'], class: "hide"%>
+            <%= d.submit "choose", class: "btn green" %>
+          <% end %>
+        </div>
       <% end %>
 
     </div>
@@ -34,6 +29,7 @@
 </div>
 
 <div class="hide">
+  <div class="type">new</div>
   <div id="start"><%= @trip.start_point %></div>
   <div id="end"><%= @trip.end_point %></div>
 </div>

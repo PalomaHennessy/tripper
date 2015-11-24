@@ -107,7 +107,6 @@ class TripController < ApplicationController
 
   def triplist
     @trip = User.find(@current_user.id).trips
-    # @trip = User.find_by_id(1).trips
     @coords = Latlng.all 
 
   end 
