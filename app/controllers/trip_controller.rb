@@ -63,7 +63,9 @@ class TripController < ApplicationController
     list = []
     @spotList.each do |d|
       if d.rating
-        list.push(d)
+        if d.price_level
+            list.push(d)
+        end
       end
     end
     @spotList = list.sort! { |a,b| b.rating <=> a.rating }
