@@ -62,7 +62,11 @@ class TripController < ApplicationController
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :radius => 300, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    @spotList = @client.spots(lat, long, :radius => 100, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    if @spotList.length < 3
+      puts "hit 300"
+      @spotList = @client.spots(lat, long, :radius => 300, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    end
     if @spotList.length < 3
       puts "hit 1000"
       @spotList = @client.spots(lat, long, :radius => 1000, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
@@ -107,7 +111,11 @@ class TripController < ApplicationController
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :radius => 300, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    @spotList = @client.spots(lat, long, :radius => 100, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    if @spotList.length < 3
+      puts "hit 300"
+      @spotList = @client.spots(lat, long, :radius => 300, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    end
     if @spotList.length < 3
       puts "hit 1000"
       @spotList = @client.spots(lat, long, :radius => 1000, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
