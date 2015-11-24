@@ -48,10 +48,10 @@ class TripController < ApplicationController
   def pseudoupdate
     trip = Trip.find params[:id]
     trip.latlngs.create lat:params['lat'], long:params['lng']
-    render :js => "window.location = '/trip/" + params[:id] + "/pseudoedit/" + params[:dest] + "'"
+    render :js => "window.location = '/trip/" + params[:id] + "/destedit/" + params[:dest] + "'"
   end
 
-  def pseudoedit
+  def destedit
     trip = Trip.find params[:id]
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
@@ -103,8 +103,8 @@ class TripController < ApplicationController
   end
 
   def statictrip
-    # @trip = User.find(@current_user.id).trips
-    @trip = User.find_by_id(1).trips
+    @trip = User.find(@current_user.id).trips
+    # @trip = User.find_by_id(1).trips
     @coords = Latlng.all 
 
   end 
