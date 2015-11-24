@@ -16,6 +16,7 @@
       <h6><a href = "<%= d.url %>" target="_blank"><%= d.place %></a></h6>
         <% end %>
       <h5>End: <%= @trip.end_point %></h5>
+      <%= link_to "See this trip", trip_change_path(@trip.id), class: "btn teal"%> 
       
     </div>
   </div>
