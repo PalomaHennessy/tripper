@@ -10,7 +10,7 @@ class TripController < ApplicationController
   # generate change page
   def change
     @trip = Trip.find(params[:id])
-    @destinations = Trip.find(params[:id]).destinations
+    @destinations = Trip.find(params[:id]).destinations.order(:id)
     @coord = Trip.find(params[:id]).latlngs
   end
 

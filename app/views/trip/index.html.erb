@@ -10,9 +10,9 @@
 		<div class="rowlanding">
 		      <div class="row">
 		  	      <%= form_for :trip, url: trip_create_path do |f|%>
-		  	       <div class="col s6"><%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true %> </div>
-		           <div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location'%></div>
-		           <div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name' %></div>
+		  	       <div class="col s6"><%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true, class: "white-text" %> </div>
+		           <div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location', class: "white-text"%></div>
+		           <div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name', class: "white-text" %></div>
 		           <div><a class="waves-effect waves-light btn #ffe082 amber lighten-3 black-text"><%= f.submit %></a></div>
 		           <% end %>
 		       </div>
