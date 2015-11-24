@@ -8,7 +8,7 @@ class AuthController < ApplicationController
 			provider: params[:provider]) do |u|
 			u.provider_hash = provider_user['credentials']['token']
 			u.name = provider_user['info']['name']
-			if provider_user = 'facebook'
+			if :provider == 'facebook'
 				u.email = provider_user['info']['email']
 			end
 		end

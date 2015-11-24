@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/pseudonew/:dest' => 'trip#pseudonew', as: 'trip_remap'
 
-  post 'trip/:id/pseudoedit/:dest' => 'trip#redest'
+  post 'trip/:id/destedit/:dest' => 'trip#redest'
 
   get 'trip/destroy'
 
