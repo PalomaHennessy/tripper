@@ -11,7 +11,8 @@ class TripController < ApplicationController
   def change
     @trip = Trip.find(params[:id])
     @destinations = Trip.find(params[:id]).destinations.order(:id)
-    @coord = Trip.find(params[:id]).latlngs
+    number = @destinations.length
+    @coord = Trip.find(params[:id]).latlngs.last(number + 1)
   end
 
   def create
