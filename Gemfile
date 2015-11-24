@@ -49,6 +49,8 @@ gem 'rest-client'
 
 gem 'google_places'
 
+gem 'rb-readline', '~> 0.4.2'
+
 group :production do
   gem 'rails_12factor'
 end
