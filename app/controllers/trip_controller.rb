@@ -130,7 +130,6 @@ class TripController < ApplicationController
 
     if trip
     trip.latlngs.destroy(latlng)
-    # latlng.destroy
     trip.destroy
   end  
     redirect_to trip_triplist_path
