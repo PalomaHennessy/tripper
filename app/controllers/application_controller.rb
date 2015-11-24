@@ -31,8 +31,8 @@ end
 
   def is_authenticated?
     unless current_user
-      flash[:danger] = "Credentials Invalid!!"
-      redirect_to login_path
+      gflash :error => "Need to logged in to do that action!"
+      redirect_to root_path
     end
   end
 
