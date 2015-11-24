@@ -1,8 +1,8 @@
 require 'rest-client'
 
 class TripController < ApplicationController
-  before_action :current_user
-  before_action :is_authenticated?, except:[:index, :create, :new]
+  # before_action :current_user
+  # before_action :is_authenticated?, except:[:index, :create, :new]
 
   def index
   end
@@ -43,8 +43,10 @@ class TripController < ApplicationController
     long = 0
 
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
-    # @spotList.sort! { |a,b| a.price_level <=> b.price_level}
+    @spotList = @client.spots(lat, long, :radius => 300, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    # if @spotList.length < 3
+    #   puts "less than three"
+    # end 
     @spotList.sort! { |a,b| b.rating <=> a.rating }
 
     @gmap = ENV['GOOGLE_DIR']
