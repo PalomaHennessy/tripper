@@ -2,6 +2,7 @@ require 'rest-client'
 
 class TripController < ApplicationController
   before_action :current_user
+  before_action :is_authenticated?, except:[:index, :create, :new]
 
   def index
   end
@@ -15,8 +16,10 @@ class TripController < ApplicationController
 
   def create
     trip= Trip.create trip_params
-    user = @current_user.id
-    trip = User.find(user).trips.create trip_params
+    if @current_user 
+      user = @current_user.id
+      trip = User.find(user).trips.create trip_params
+    end
     @trip = trip
     gflash :success => "Trip created!"
     redirect_to trip_new_path(trip.id)
