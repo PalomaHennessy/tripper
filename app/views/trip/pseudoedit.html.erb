@@ -1,35 +1,30 @@
-<!-- <h1>Trip#new</h1>
-<p>Find me in app/views/trip/new.html.erb</p> -->
 <div class="row">
   <div class="col-trip-edit col s6">
     <span class="flow-text">
-      <h5>Map div here</h5>
       <div id="map"></div>
       <div id="panel"></div>
     </span>
   </div>
-	<div class="col-trip-edit col s6">
-		<h5>Trip New Page</h5>
-		<div class="row">
-    		
-     			<div class="row">
-              <h1><%= @trip.trip_name %></h1>
-      		</div>
-    
-  	</div>
-      <form action="#">
-      <% @spotList.each do |item| %>
-      <div class="well">
-        <input type="checkbox" id="<%=item["name"]%>" />
-        <label for="<%=item["name"]%>">
-        <%= item["name"] %></label>
-        <h6>Rating: <%= item["rating"] %></h6>
-        <h6>Pricing: <%= item["price_level"] %></h6>
-        <h6>Address: <%= item["vicinity"] %></h6>
-        </form>
-
+  <div class="col-trip-edit col s6">
+    <!-- <h1>Plan your Trip</h1> -->
+    <div class="trip_box">
+      <div class="row">
+        <h3><%= @trip.trip_name %></h3>
       </div>
+      <% @spotList.take(3).each do |item| %>
+        <div class="white-text card-panel teal">
+          <p><%= item['name'] %></p>
+          <p><%= item['price_level'] %>/4 <%= item['rating'] %>/5</p>
+          <p><a href = "http://maps.google.com/maps?q=<%= item['vicinity'] %>"><%= item['vicinity'] %></a></p>
+          <%= form_for :destination do |d| %>
+            <%= d.text_field :place, value: item['name'], class: "hide" %>
+            <%= d.text_field :url, value: "http://maps.google.com/maps?q=" + item['vicinity'], class: "hide"%>
+            <%= d.submit "choose", class: "btn green" %>
+          <% end %>
+        </div>
       <% end %>
+    
+    </div>
   </div>
 </div>
 

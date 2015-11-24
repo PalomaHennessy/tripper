@@ -42,6 +42,7 @@ class TripController < ApplicationController
 
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
+    @destination = @trip.destinations.find(params[:dest])
   end
 
   def pseudoupdate
@@ -55,9 +56,17 @@ class TripController < ApplicationController
     lat = trip.latlngs.last['lat']
     long =  trip.latlngs.last['long']
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
-    @spotList = @client.spots(lat, long, :types => ['food','restaurant','meal_takeaway']) 
+    @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
+    list = []
+    @spotList.each do |d|
+      if d.rating
+        list.push(d)
+      end
+    end
+    @spotList = list.sort! { |a,b| b.rating <=> a.rating }
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
+    @destination = Destination.new
   end
 
   def new
