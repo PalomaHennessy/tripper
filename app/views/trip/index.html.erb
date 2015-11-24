@@ -1,23 +1,23 @@
-
+<!-- home page  -->
 <div id="wrapper">
 	<div class = "container" id = "trip-form">
 		<h1 id="hlanding">Trippin Made Easy.</h1>
 		<p id="planding">Tripping is a road trip app made easy. Competitors cloud your ability to enjoy life
-		by giving you the obnoxious ability to make choices. Fret not weary traveler, for salvation is at hand!
+			by giving you the obnoxious ability to make choices. Fret not weary traveler, for salvation is at hand!
 		</p>
 
 		<%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
 		<%= link_to "Login with Twitter", "/auth/twitter", class: "btn btn-primary" %>
 
 		<div class="rowlanding">
-		      <div class="row">
-		  	      <%= form_for :trip, url: trip_create_path do |f|%>
-		  	       <div class="col s6"><%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true %> </div>
-		           <div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location'%></div>
-		           <div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name' %></div>
-		           <div><a class="waves-effect waves-light btn #ffe082 amber lighten-3 black-text"><%= f.submit %></a></div>
-		           <% end %>
-		       </div>
-	  	</div>
+			<div class="row">
+				<%= form_for :trip, url: trip_create_path do |f|%>
+				<div class="col s6"><%=f.text_field :start_point, class: "validate", placeholder: 'Starting Location', autofocus: true %> </div>
+				<div class="col s6"><%= f.text_field :end_point, placeholder: 'Ending Location'%></div>
+				<div class="col s12"><%= f.text_field :trip_name, placeholder: 'Your Trip Name' %></div>
+				<div><a class="waves-effect waves-light btn #ffe082 amber lighten-3 black-text"><%= f.submit %></a></div>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>	

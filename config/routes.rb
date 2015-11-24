@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'trip/statictrip' => 'trip#statictrip'
+  get 'trip/triplist' => 'trip#triplist'
 
   get 'static/new'
 

@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
     	gflash :danger => "Invalid credentials."
     	redirect_to root_path
   	end
-    puts "Logging in!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
 
   def destroy

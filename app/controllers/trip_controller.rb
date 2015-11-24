@@ -14,12 +14,9 @@ class TripController < ApplicationController
   end
 
   def create
-
     trip= Trip.create trip_params
     user = @current_user.id
     trip = User.find(user).trips.create trip_params
-    # user = @current_user.id
-    # trip = User.find(user).trips.create trip_params
     @trip = trip
     gflash :success => "Trip created!"
     redirect_to trip_new_path(trip.id)
@@ -102,7 +99,7 @@ class TripController < ApplicationController
     @destination = Destination.new
   end
 
-  def statictrip
+  def triplist
     @trip = User.find(@current_user.id).trips
     # @trip = User.find_by_id(1).trips
     @coords = Latlng.all 
@@ -128,7 +125,6 @@ class TripController < ApplicationController
   end
 
   def destroy
-    puts ('penajsvd')
     trip = Trip.find(params[:id])
     latlng = Latlng.where(trip_id: params[:id])
 
@@ -137,7 +133,7 @@ class TripController < ApplicationController
     # latlng.destroy
     trip.destroy
   end  
-    redirect_to trip_statictrip_path
+    redirect_to trip_triplist_path
   end
 
   private 

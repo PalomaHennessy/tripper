@@ -1,3 +1,4 @@
+<!-- make trip alterations -->
 <div class="row">
   <div class="col-trip-edit col s6">
     <span class="flow-text">
@@ -5,15 +6,14 @@
       <div id="panel"></div>
     </span>
   </div>
-	<div class="col-trip-edit col s6">
-		<!-- <h1>Plan your Trip</h1> -->
+  <div class="col-trip-edit col s6">
     <div class="trip_box white-text">
       <h1><%= @trip.trip_name %></h1>
-     	<% @destinations.each do |d| %>
-			  <p> <a href="<%= d.url %>"><%= d.place %></a></p>
-			  <%= link_to "change", trip_remap_path(params[:id], d.id), class: "btn btn-small teal" %>
-			  <%= link_to "delete", re_delete_path(params[:id], d.id), class: "btn btn-small red" %> 
-			<% end %>
+      <% @destinations.each do |d| %>
+      <p> <a href="<%= d.url %>"><%= d.place %></a></p>
+      <%= link_to "change", trip_remap_path(params[:id], d.id), class: "btn btn-small teal" %>
+      <%= link_to "delete", dest_delete_path(params[:id], d.id), class: "btn btn-small red" %> 
+      <% end %>
     </div>
   </div>
 </div>
@@ -21,14 +21,15 @@
 <div class="hide">
   <% count = 1 %>
   <%= @coord.each do |c| %>
-    <p id="<%= count%>" class="spot"><%= c.lat %></p>
-    <% count += 1 %>
-    <p id="<%= count%>" class="spot"><%= c.long %></p>
-    <% count += 1 %>
+  <p id="<%= count%>" class="spot"><%= c.lat %></p>
+  <% count += 1 %>
+  <p id="<%= count%>" class="spot"><%= c.long %></p>
+  <% count += 1 %>
   <% end %> 
   <div id="start"><%= @trip.start_point %></div>
   <div id="end"><%= @trip.end_point %></div>
 </div>
+
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initShowMap">
+src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initShowMap">
 </script>

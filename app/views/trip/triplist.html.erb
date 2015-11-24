@@ -1,0 +1,10 @@
+<!-- list all saved trips w/ delete capability -->
+<h1 id="editheader">Your Trips</h1>
+<div class="trips">
+	<% @trip.each do |trip| %>
+	<h2 id="tripnames"><%= trip.trip_name%></h2>
+	<a id="editbtn" class="waves-effect waves-light btn black-text"><%= button_to "Edit this Trip", trip_edit_path(trip.id)%></a>
+	<a id="deletebtn" class="waves-effect waves-light btn #ef5350 red lighten-1 black-text"><%= button_to 'Delete Trip', trip_delete_path(trip.id), :method => :delete %></a>
+	<%= link_to 'delete plez', trip_delete_path(trip.id) %>
+	<% end %>
+</div>
