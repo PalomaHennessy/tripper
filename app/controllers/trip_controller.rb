@@ -31,6 +31,12 @@ class TripController < ApplicationController
     redirect_to trip_new_path(params[:id])
   end
 
+  def redest
+    trip = Trip.find(params[:id])
+    trip.destinations.find(params[:dest]).update dest_params
+    redirect_to trip_change_path(params[:id])
+  end
+
   def pseudonew
     lat = 0
     long = 0
