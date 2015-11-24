@@ -51,29 +51,19 @@
 
 <footer class="page-footer black">
    <div class="footer-copyright">
-      <div class="container">
-        <a class="grey-text text-lighten-4 right" href="/static/new">About Us</a>
-        <a href = "https://github.com/AraLawrence/tripper">
-        <img src="" alt="github" width="50" height="50"></a>
-
-      </div>
    </div>
 </footer>
 
 <div id="loginModal1" class="modal">
   <div class="modal-content">
-    <h4 id="loginheader">Login</h4>
+    <!-- <h4 id="loginheader">Please Login</h4> -->
     <div class="rowlanding">
-      <%= form_for :user, url: auth_user_path do |u|%>
-      <%= u.text_field :email, placeholder: 'Email'%>
-      <%= u.password_field :password, placeholder: 'Password'%>
-    </div>   
+    <br/>
+   <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary #283593 indigo darken-3" %>
+      <p id="pmodal">or</p>
+    <%= link_to "Login with Twitter", "/auth/twitter", class: "btn btn-primary #90caf9 blue lighten-3" %>    
+   
   </div>
-  <div class="modal-footer">
-    <%= u.submit 'Login', class: "modal-action modal-close waves-effect waves-green btn-flat"%>  
-    <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
-  </div>
-<% end %>
 </div>
 
 <script>
