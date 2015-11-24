@@ -9,7 +9,7 @@ class TripController < ApplicationController
   # generate change page
   def change
     @trip = Trip.find(params[:id])
-    @destinations = Trip.find(params[:id]).destinations
+    @destinations = Trip.find(params[:id]).destinations.order(:id)
     @coord = Trip.find(params[:id]).latlngs
   end
 
@@ -26,6 +26,12 @@ class TripController < ApplicationController
     trip = Trip.find(params[:id])
     trip.destinations.create dest_params
     redirect_to trip_new_path(params[:id])
+  end
+
+  def redest
+    trip = Trip.find(params[:id])
+    trip.destinations.find(params[:dest]).update dest_params
+    redirect_to trip_change_path(params[:id])
   end
 
   def pseudonew

@@ -1,3 +1,5 @@
+/*about us page*/
+
 .card-content {
 	background-color: black;
 	color: white;
@@ -16,9 +18,15 @@ img.activator {
 	margin-left: 16px;
 	margin-right: 10px;
 	margin-bottom: 0px;
-
-	}
-div .gritter-item.gritter-css3{
-	color: #C2060C;
-	background-color: #4D4D4C;
 }
+
+p#bioparagraph {
+	margin-top: -10px;
+	margin-bottom:10px;
+}
+
+#aboutpara {
+	color: white;
+	text-align: center;
+}
+
