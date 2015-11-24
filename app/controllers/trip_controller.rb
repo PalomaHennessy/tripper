@@ -19,7 +19,14 @@ class TripController < ApplicationController
     user = @current_user.id
     trip = User.find(user).trips.create trip_params
     @trip = trip
+    gflash :success => "Trip created!"
     redirect_to trip_new_path(trip.id)
+  end
+
+  def add
+    trip = Trip.find(params[:id])
+    trip.destinations.create dest_params
+    redirect_to trip_new_path(params[:id])
   end
 
   def pseudonew
@@ -59,8 +66,8 @@ class TripController < ApplicationController
 
     @client = GooglePlaces::Client.new(ENV["PLACES_KEY"])
     @spotList = @client.spots(lat, long, :radius => 3219, :types => ['food','restaurant','meal_takeaway'], :exclude => ['cafe','grocery_or_supermarket','store'])
-    # @spotList.sort! { |a,b| a.price_level <=> b.price_level}
     @spotList.sort! { |a,b| b.rating <=> a.rating }
+    @destinations = Trip.find(params[:id]).destinations
 
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]   
@@ -81,6 +88,7 @@ class TripController < ApplicationController
     @spotList = list.sort! { |a,b| b.rating <=> a.rating }
     @gmap = ENV['GOOGLE_DIR']
     @trip = Trip.find params[:id]
+    @destination = Destination.new
   end
 
   def statictrip
@@ -112,6 +120,10 @@ class TripController < ApplicationController
   end
 
   private 
+  
+  def dest_params
+    params.require(:destination).permit(:place, :url)
+  end
 
   def trip_params
     params.require(:trip).permit(:start_point, :end_point, :trip_name)

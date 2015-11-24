@@ -34,6 +34,8 @@ gem 'email_validator'
 
 gem 'materialize-sass'
 
+
+
 # OAUTH Gem
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -42,6 +44,13 @@ gem 'omniauth-facebook'
 gem 'rest-client'
 
 gem 'google_places'
+
+group :production do
+  gem 'rails_12factor'
+end
+
+#Gritter Gem
+gem 'gritter'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -60,5 +69,4 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end
-  gem 'spring'
 

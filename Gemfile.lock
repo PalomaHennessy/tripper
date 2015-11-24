@@ -63,6 +63,7 @@ GEM
       activesupport (>= 4.1.0)
     google_places (0.32.0)
       httparty (~> 0.13.1)
+    gritter (1.2.0)
     hashie (3.4.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -85,14 +86,14 @@ GEM
       mime-types (>= 1.16, < 3)
     materialize-sass (0.97.3)
       sass (~> 3.3)
-    mime-types (2.6.2)
+    mime-types (2.99)
     mini_portile (0.6.2)
     minitest (5.8.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nokogiri (1.6.6.3)
+    nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -131,6 +132,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -152,7 +158,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    spring (1.4.4)
     sprockets (3.4.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
@@ -190,6 +195,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   email_validator
   google_places
+  gritter
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
@@ -197,10 +203,10 @@ DEPENDENCIES
   omniauth-facebook
   pg (~> 0.15)
   rails (= 4.2.5)
+  rails_12factor
   rest-client
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  spring
   turbolinks
   uglifier (>= 1.3.0)
   valid_url
