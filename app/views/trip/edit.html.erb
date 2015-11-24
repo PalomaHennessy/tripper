@@ -12,9 +12,9 @@
         <h3><%= @trip.trip_name %></h3>
       </div>
       <% @spotList.take(3).each do |item| %>
-        <div class="white-text card-panel teal">
+        <div class="white-text card-panel teal trip-places">
           <p><%= item['name'] %></p>
-          <p><%= item['price_level'] %>/4 <%= item['rating'] %>/5</p>
+          <p>Price level: <%= item['price_level'] %>/4 | Rating: <%= item['rating'] %>/5</p>
           <p><a href = "http://maps.google.com/maps?q=<%= item['vicinity'] %>"><%= item['vicinity'] %></a></p>
           <%= form_for :destination do |d| %>
             <%= d.text_field :place, value: item['name'], class: "hide" %>

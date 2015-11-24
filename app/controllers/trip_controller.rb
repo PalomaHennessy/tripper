@@ -109,8 +109,7 @@ class TripController < ApplicationController
   end
 
   def statictrip
-    # @trip = User.find(@current_user.id).trips
-    @trip = User.find_by_id(1).trips
+    @trip = User.find(@current_user.id).trips
     @coords = Latlng.all 
 
   end 
