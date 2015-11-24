@@ -189,10 +189,9 @@ function initShowMap() {
 		  }
 	  });
 
-  var num = 0
+  var num = 1
 
 	function drop() {
-	  num = 1;
 	  for (var i =0; i < 200; i++) {
 	    setTimeout(function() {
 	      addMarker();
@@ -210,7 +209,7 @@ function initShowMap() {
 	    draggable: true,
 	    animation: google.maps.Animation.DROP,
 	    position: {lat: lati, lng: longi}
-	  });
+	  });	
 	}
 
   drop();
