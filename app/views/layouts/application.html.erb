@@ -31,12 +31,14 @@
     <div class="nav-wrapper black">
       <a href="/" class="brand-logo center">Tripper</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
+       <li><a class="waves-effect waves-light btn black" href="/static/new">About Us</a></li>
         <% if @current_user %>
         <li><a href="/auth/logout">LOGOUT</a></li>
         <li><a href="/trip/statictrip"><%= @current_user.name %></a></li>
+
         <% else %>
         <li><a class="waves-effect waves-light btn modal-trigger black" data-backdrop='false' href="#loginModal1">Login</a></li>
-        <li><a class="waves-effect waves-light btn modal-trigger black" data-backdrop='false' href="#signUpModal1">Sign Up</a></li>
+
         <% end %>
       </ul>
     </div>
@@ -50,7 +52,9 @@
    <div class="footer-copyright">
       <div class="container">
         <a class="grey-text text-lighten-4 right" href="/static/new">About Us</a>
-        <a href="http://www.iconsdb.com/icons/preview/white/github-6-xxl.png" alt="github" width="50" height="50"></a>
+        <a href = "https://github.com/AraLawrence/tripper">
+        <img src="" alt="github" width="50" height="50"></a>
+
       </div>
    </div>
 </footer>
@@ -69,20 +73,6 @@
     <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-primary" %>
   </div>
 <% end %>
-</div>
-
-<div id="signUpModal1" class="modal">
-  <div class="modal-content">
-    <h4 id="loginheader">Sign Up</h4>
-    <div class="rowlanding">
-      <%= form_for :user, url: user_create_path do |f| %>
-      <%= f.text_field :name, placeholder: 'Name'%>
-      <%= f.text_field :email, placeholder: 'Email'%>
-      <%= f.password_field :password, placeholder: 'Password' %>
-      <%= f.submit 'Sign me up!', class: 'modal-action modal-close waves-effect waves-green btn btn-primary' %>
-      <% end %>
-    </div>
-  </div>
 </div>
 
 <script>
