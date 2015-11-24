@@ -53,6 +53,8 @@ end
 #Gritter Gem
 gem 'gritter'
 
+#specifiying ruby
+ruby '2.2.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
