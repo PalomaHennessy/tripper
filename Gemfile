@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#specifiying ruby
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -34,21 +36,24 @@ gem 'email_validator'
 
 gem 'materialize-sass'
 
-
+#Gritter Gem
+gem 'gritter'
 
 # OAUTH Gem
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 #rest-client for APIs
 gem 'rest-client'
 
 gem 'google_places'
 
+gem 'rb-readline', '~> 0.4.2'
+
 group :production do
   gem 'rails_12factor'
 end
-
 
 # Use Unicorn as the app server
 # gem 'unicorn'

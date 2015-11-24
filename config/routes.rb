@@ -14,13 +14,15 @@ Rails.application.routes.draw do
 
   get 'trip/:id/edit' => 'trip#edit', as: 'edit_trip'
 
+  post 'trip/:id/edit' => 'trip#add'
+
   get 'trip/show' 
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
-  get 'trip/:id/pseudoedit' => 'trip#pseudoedit', as: 'trip_redo'
+  get 'trip/:id/pseudoedit/:dest' => 'trip#pseudoedit', as: 'trip_redo'
 
-  get 'trip/:id/pseudoupdate' => 'trip#pseudoupdate'
+  get 'trip/:id/pseudoupdate/:dest' => 'trip#pseudoupdate'
 
   get 'trip/:id/pseudonew/:dest' => 'trip#pseudonew', as: 'trip_remap'
 
@@ -52,6 +54,8 @@ Rails.application.routes.draw do
   post '/' => 'user#create', as: 'user_create'
   post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'
+
+  get '*unmatched_route', to: 'application#raise_not_found'
 
   resources :user
   resources :trip

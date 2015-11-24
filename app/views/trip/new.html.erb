@@ -11,20 +11,12 @@
      	<div class="row">
         <h3><%= @trip.trip_name %></h3>
       </div>
-      <form action="#">
-      <% @spotList.take(3).each do |item| %>
-      <div class="well">
-        <input type="checkbox" id="<%=item["name"]%>" />
-        <label for="<%=item["name"]%>">
-        <h5 class="checkbox_items"><%= item["name"] %></h5></label>
-        <h6><a href = "http://maps.google.com/maps?q=<%= item["vicinity"] %>" target="_blank"><%= item["vicinity"] %></a></h6>
-        <h6>Rating: <%= (item["rating"]*20).floor %>%</h6>
-        <h6>Pricing: <%= item["price_level"] %>/4</h6>
-      </div>
-      <% end %>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        </button>
-      </form>
+      <h5>Start: <%= @trip.start_point %></h5>
+      <% @destinations.each do |d| %>
+      <h6><a href = "<%= d.url %>" target="_blank"><%= d.place %></a></h6>
+        <% end %>
+      <h5>End: <%= @trip.end_point %></h5>
+      
     </div>
   </div>
 </div>
