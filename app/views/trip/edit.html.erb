@@ -1,3 +1,4 @@
+<!-- start planning trip page -->
 <div class="row">
   <div class="col-trip-edit col s12 m6">
     <span class="flow-text">
@@ -5,13 +6,18 @@
       <div id="panel"></div>
     </span>
   </div>
+<<<<<<< HEAD:app/views/trip/edit.html.erb
   <div class="col-trip-edit col s12 m6">
     <!-- <h1>Plan your Trip</h1> -->
+=======
+  <div class="col-trip-edit col s6">
+>>>>>>> PalomaHennessy-user-controller:app/views/trip/edit.erb
     <div class="trip_box">
       <div class="row">
         <h3><%= @trip.trip_name %></h3>
       </div>
       <% @spotList.take(3).each do |item| %>
+<<<<<<< HEAD:app/views/trip/edit.html.erb
         <div class="white-text card-panel teal trip-places">
           <p><%= item['name'] %></p>
           <p>Price level: <%= item['price_level'] %>/4 | Rating: <%= item['rating'] %>/5</p>
@@ -22,8 +28,20 @@
             <%= d.submit "choose", class: "btn green" %>
           <% end %>
         </div>
+=======
+      <div class="white-text card-panel teal">
+        <p><%= item['name'] %></p>
+        <p><%= item['price_level'] %>/4 <%= item['rating'] %>/5</p>
+        <p><a href = "http://maps.google.com/maps?q=<%= item['vicinity'] %>"><%= item['vicinity'] %></a></p>
+        <%= form_for :destination do |d| %>
+        <%= d.text_field :place, value: item['name'], class: "hide" %>
+        <%= d.text_field :url, value: "http://maps.google.com/maps?q=" + item['vicinity'], class: "hide"%>
+        <%= d.submit "choose", class: "btn green" %>
+        <% end %>
+      </div>
+>>>>>>> PalomaHennessy-user-controller:app/views/trip/edit.erb
       <% end %>
-    
+
     </div>
   </div>
 </div>
@@ -33,5 +51,5 @@
   <div id="end"><%= @trip.end_point %></div>
 </div>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=<%= @gmap %>&callback=initMap">
 </script>

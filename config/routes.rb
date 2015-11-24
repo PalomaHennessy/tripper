@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'trip/statictrip' => 'trip#statictrip'
+  get 'trip/triplist' => 'trip#triplist'
 
   get 'static/new'
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/new' => 'trip#new', as: 'trip_new'
 
-  get 'trip/:id/edit' => 'trip#edit', as: 'edit_trip'
+  get 'trip/:id/edit' => 'trip#edit', as: 'trip_edit'
 
   post 'trip/:id/edit' => 'trip#add'
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'trip/:id/update' => 'trip#update', as: 'trip_update'
 
-  get 'trip/:id/pseudoedit/:dest' => 'trip#pseudoedit', as: 'trip_redo'
+  get 'trip/:id/destedit/:dest' => 'trip#destedit', as: 'dest_edit'
 
   get 'trip/:id/pseudoupdate/:dest' => 'trip#pseudoupdate'
 
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   get 'user/destroy'
 
-  get 'trip/:dest/delete/:id' => 'trip#delete', as: 're_delete'
+  get 'trip/:dest/delete/:id' => 'trip#delete', as: 'dest_delete'
   get 'trip/:id/destroy' => 'trip#destroy', as: 'trip_delete'
 
   get 'trip/:id/change' => 'trip#change', as: 'trip_change'

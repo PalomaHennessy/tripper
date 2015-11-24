@@ -4,7 +4,6 @@ class UserController < ApplicationController
   end
 
   def create
-    puts "Trying to create a user!!!!!!!!!!!!!!!!!!!!!!!!!!"
     User.create user_params
     redirect_to root_path
   end
