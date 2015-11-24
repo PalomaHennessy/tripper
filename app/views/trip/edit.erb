@@ -11,9 +11,7 @@
       <div class="row">
         <h3><%= @trip.trip_name %></h3>
       </div>
-     
-       
-       <% @spotList.take(3).each do |item| %>
+      <% @spotList.take(3).each do |item| %>
         <div class="white-text card-panel teal">
           <p><%= item['name'] %></p>
           <p><%= item['price_level'] %>/4 <%= item['rating'] %>/5</p>
