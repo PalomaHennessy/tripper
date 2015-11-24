@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create', as: 'sessions_create1'
   post '/' => 'user#create', as: 'user_create1'
 
+  get '*unmatched_route', to: 'application#raise_not_found'
+
   resources :user
   resources :trip
   # The priority is based upon order of creation: first created -> highest priority.
