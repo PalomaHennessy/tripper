@@ -10,6 +10,7 @@ class TripController < ApplicationController
   def change
     @trip = Trip.find(params[:id])
     @destinations = Trip.find(params[:id]).destinations
+    @coord = Trip.find(params[:id]).latlngs
   end
 
   def create

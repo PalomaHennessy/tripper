@@ -153,4 +153,71 @@ function initNewMap() {
 		  })
 		})
 }
+
+//this is the callback for the async js in the trip new page
+function initShowMap() {
+	console.log("the show function is running.")
+	//creating directionsService and directionsDisplay objects to be used
+	//in setting directions
+	var directionsService = new google.maps.DirectionsService();
+	var directionsDisplay = new google.maps.DirectionsRenderer();
+	var mapOptions = //Sets map options
+	{
+		zoom: 15,
+		mapTypeControl: true, //allows you to select map type eg. map or satellite
+		navigationControlOptions:
+		{
+		  style: google.maps.NavigationControlStyle.SMALL //sets map controls size eg. zoom
+		},
+		mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
+		};
+		//draws the map
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		directionsDisplay.setMap(map);
+		//directionsDisplay.setPanel(document.getElementById('panel'));
+		//(this would set a turn by turn dispaly) 
+		var request = { //object to be passed into directionsService (object) .route() (function)
+		  origin: $("#start").html(),
+		  destination: $("#end").html(),
+		  travelMode: google.maps.DirectionsTravelMode.DRIVING
+		};
+
+		//directions request and error handling
+		directionsService.route(request, function (response, status) {
+		  if (status == google.maps.DirectionsStatus.OK) {
+		    directionsDisplay.setDirections(response);
+		  }
+	  });
+
+  var num = 0
+
+	function drop() {
+	  num = 1;
+	  for (var i =0; i < 200; i++) {
+	    setTimeout(function() {
+	      addMarker();
+	    }, i * 350);
+	  }
+	}
+
+		//create marker
+	var addMarker = function() {
+		var lati = parseInt($('#' + num).html());
+		num++;
+		var longi = parseInt($('#' + num).html());
+	  marker = new google.maps.Marker({
+	    map: map,
+	    draggable: true,
+	    animation: google.maps.Animation.DROP,
+	    position: {lat: lati, lng: longi}
+	  });
+	}
+
+  drop();
+  
+}
+
+
+
+
  
