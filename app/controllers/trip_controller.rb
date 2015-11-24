@@ -2,7 +2,7 @@ require 'rest-client'
 
 class TripController < ApplicationController
   before_action :current_user
-  
+
   def index
   end
  
@@ -94,8 +94,10 @@ class TripController < ApplicationController
   end
 
   def statictrip
-    @trip = User.find(@current_user.id).trips
-    # @trip = User.find_by_id(1).trips
+    # @trip = User.find(@current_user.id).trips
+    @trip = User.find_by_id(1).trips
+    @coords = Latlng.all 
+
   end 
 
   def update
@@ -117,9 +119,16 @@ class TripController < ApplicationController
   end
 
   def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
-    redirect_to root_path
+    puts ('penajsvd')
+    trip = Trip.find(params[:id])
+    latlng = Latlng.where(trip_id: params[:id])
+
+    if trip
+    trip.latlngs.destroy(latlng)
+    # latlng.destroy
+    trip.destroy
+  end  
+    redirect_to trip_statictrip_path
   end
 
   private 
